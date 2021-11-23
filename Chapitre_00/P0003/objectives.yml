@@ -1,0 +1,3 @@
+---
+P0003_020: "fish RAW_FISH 6 notify events:journal_P0003_020-reussite,tag_P0003_020-reussite,message_P0003_020-reussite"
+conversation_P0004: "npcinteract 6 cancel events:folder_conversation_P0004 persistent"

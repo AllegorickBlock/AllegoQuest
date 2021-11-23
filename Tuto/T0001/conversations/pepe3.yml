@@ -1,0 +1,47 @@
+---
+quester: "Pépé Rimé"
+stop: "true"
+first: "T0001_pepe_07,T0001_pepe_08-3,T0001_pepe_09"
+NPC_options:
+  T0001_pepe_07:
+    text: "Dis moi mon petit, je t'ai dit qu'avec Mamie, dans le temps, j'étais un\
+      \ &aexpert en pillage &f?\n"
+    conditions: "tag_T0001_pepe_06,!tag_T0001_pepe_08,!tag_T0001_pepe_13"
+    pointers: "T0001_pepe_07-1"
+  T0001_pepe_08:
+    text: "&aLe PILLAGE &2= &avoler des choses &fà un autre joueur (contenu d'un coffre,\
+      \ récoltes, animaux, etc). Mais &cattention&f, il ne faut pas le confondre avec...\\\
+      n&6Pépé Rimé&f: &cLe GRIEF &4= &cdégrader les créations &fdes autres: c'est\
+      \ pas sympa donc c'est &4INTERDIT &f!"
+    pointers: "T0001_pepe_08-1,T0001_pepe_08-2,T0001_pepe_08-3"
+  T0001_pepe_08-2:
+    text: "C'est ça ! Tu ne peux &cRIEN casser pour entrer dans un lieu fermé&f, sauf\
+      \ les vitres et feuillages. Tiens, essaye d'entrer dans cette maison... N'oublie\
+      \ pas: &atu peux &lpiller&f, mais &cpas &lgrief &f! "
+    events: "tag_T0001_pepe_08,objective_T0001_pepe_07"
+  T0001_pepe_08-3:
+    text: "Tiens, essaye d'entrer dans cette maison... N'oublie pas: &atu peux &lpiller&f,\
+      \ mais &cpas &lgrief &f!"
+    conditions: "tag_T0001_pepe_08,!tag_T0001_pepe_01-reussite"
+  T0001_pepe_09:
+    text: "Tu as respecté le &erèglement&f, bravo, voilà ta récompense ! Pour entrer\
+      \ il y avait la fenêtre ouverte et l'échelle. Tu peux &epiller certains blocs&f,\
+      \ la liste est sur le forum. \\n&b&l(!) &3Va voir la maison un peu plus loin..."
+    events: "tag_T0001_pepe_09,objective_tp_zone_2-2,tag_hologramme_5,reward_pillage"
+    conditions: "tag_T0001_pepe_01-reussite,!tag_T0001_pepe_13,!tag_T0001_pepe_09"
+player_options:
+  T0001_pepe_07-1:
+    text: "Le pillage ? Qu'est ce que c'est ?"
+    pointers: "T0001_pepe_08"
+  T0001_pepe_08-1:
+    text: "Ah d'accord ! Je peux casser cette porte pour entrer et voler tout ce qu'il\
+      \ y a ?"
+    pointers: "T0001_pepe_08"
+  T0001_pepe_08-2:
+    text: "Ah d'accord ! Je peux voler le contenu des coffres tant que je ne casse\
+      \ rien d'autre ?"
+    pointers: "T0001_pepe_08-2"
+  T0001_pepe_08-3:
+    text: "Ah d'accord ! Je peux entrer là si c'est ouvert et casser tout ce qui est\
+      \ à l'intérieur ?"
+    pointers: "T0001_pepe_08"

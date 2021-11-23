@@ -1,0 +1,8 @@
+---
+tag_P0001-fin: "tag P0001-fin"
+tag_P0002_030: "tag P0002_030"
+tag_P0002_030_obj-03-reussite: "tag P0002_030_obj-03-reussite"
+tag_P0002-fin: "tag P0002-fin"
+item_lingotdefer: "item lingotdefer:8"
+minage: "world Ressources"
+or: "or !item_lingotdefer,!tag_P0002_030_obj-03-reussite"

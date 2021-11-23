@@ -1,0 +1,14 @@
+---
+quester: "Garde"
+stop: "false"
+first: "T0001_garde_01,T0001_garde_02"
+NPC_options:
+  T0001_garde_01:
+    text: "Tu veux passer ? Pas de problème mais il me faut un petit quelque chose\
+      \ en échange... Rapporte-moi une &epomme dorée &f!"
+    events: "tag_T0001_garde_01"
+    conditions: "tag_T0001_pepe_11,!tag_T0001_garde_02,OR_total_garde_01"
+  T0001_garde_02:
+    text: "Ah, voilà une belle pomme ! C'est bon, tu peux passer..."
+    events: "take_golden_apple,objective_tp_zone_3,tag_T0001_garde_02"
+    conditions: "tag_T0001_garde_01,item_golden_apple,!tag_T0001_garde_02"

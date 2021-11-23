@@ -1,0 +1,89 @@
+---
+quester: "Mamie Chouquette"
+stop: "false"
+first: "S0010_mamie_01,S0010_mamie_04-A,S0010_mamie_04-B,S0010_mamie_04-C,S0010_mamie_04-rien,S0010_mamie_05,S0010_mamie_06"
+NPC_options:
+  S0010_mamie_01:
+    text: "Par mes petits choux ! Je n'ai plus de quoi faire mes patisseries, et mon\
+      \ dos me fait trop souffrir pour que je me rende par moi-même au marché... Quel\
+      \ pétrin !"
+    events: "folder_S0010_tag_random-A/B/C"
+    conditions: "tag_P0001-fin,!or_S0010_tag_mamie_02,!tag_S0010-fin,!tag_S0010-cooldown"
+    pointers: "S0010_mamie_01"
+  S0010_mamie_04-A:
+    text: "Voilà qui va aller directement dans mes fourneaux ! Prends donc ces pâ\
+      tisseries pour m'avoir aidée ! &eReviens me voir&f plus tard !"
+    events: "reward_S0010_tarte_pain,take_S0010_ble_sucre,tag_S0010-fin,deltag_S0010_mamie_02-A,journal_del_S0010_mamie_02-A,obj_S0010_cooldown,point_S0010_complete,folder_S0010_message_ré\
+      compense-A,deltag_S0010_inprogress,tag_S0010-cooldown"
+    conditions: "item_S0010_ble_sucre,tag_S0010_mamie_02-A,!tag_S0010-cooldown"
+  S0010_mamie_04-B:
+    text: "Parfait, j'en avais besoin pour essayer une nouvelle recette ! Voilà quelques\
+      \ biscuits pour toi ! &eReviens&f voir Mamie Chouquette si tu passes par là\
+      \ !\n"
+    events: "take_S0010_ble_lait,reward_S0010_gateau_pain,give_S0010_seau,obj_S0010_cooldown,deltag_S0010_mamie_02-B,journal_del_S0010_mamie_02-B,tag_S0010-fin,folder_S0010_message_ré\
+      compense-B,deltag_S0010_inprogress,tag_S0010-cooldown"
+    conditions: "item_S0010_ble_lait,tag_S0010_mamie_02-B,!tag_S0010-cooldown"
+  S0010_mamie_04-C:
+    text: "Je vais enfin pouvoir refaire des pâtisseries ! D'ailleurs, voilà pour\
+      \ toi ! &eReviens me voir&f quand tu auras du temps !\n"
+    events: "reward_S0010_tarte_gateau,give_S0010_seau,take_S0010_sucre_lait,deltag_S0010_mamie_02-C,obj_S0010_cooldown,journal_del_S0010_mamie_02-C,tag_S0010-fin,folder_S0010_message_ré\
+      compense-C,deltag_S0010_inprogress,tag_S0010-cooldown"
+    conditions: "item_S0010_sucre_lait,tag_S0010_mamie_02-C,!tag_S0010-cooldown"
+  S0010_mamie_04-rien:
+    text: "L'heure du thé approche à grands pas et je n'ai pas encore pu préparer\
+      \ ce qu'il me manquait !"
+    events: "folder_S0010_message_obj-A,folder_S0010_message_obj-B,folder_S0010_message_obj-C"
+    conditions: "or_S0010_tag_mamie_02,!tag_S0010-cooldown"
+  S0010_mamie_05:
+    text: "Par mes petits choux, je suis débordée ! &eReviens me voir plus tard&f,\
+      \ le temps Mamie Chouquette finisse de préparer ces biscuits !"
+    conditions: "tag_S0010-cooldown"
+  S0010_mamie_06:
+    text: "Ah, te voilà mon petit ! Tu pourrais faire quelques courses pour Mamie\
+      \ Chouquette ?"
+    events: "folder_S0010_tag_random-A/B/C"
+    conditions: "tag_S0010-fin,!or_S0010_tag_mamie_02"
+    pointers: "S0010_mamie_06-oui,S0010_mamie_06-non"
+  S0010_mamie_02-A:
+    text: "Attends que j'attrape mes lunettes... Il me faut &l&a32 blés et 16 sucres\
+      \ !"
+    conditions: "tag_S0010_random-A"
+    pointers: "S0010_mamie_02-A-oui,S0010_mamie_02-A-non"
+  S0010_mamie_02-B:
+    text: "J'ai besoin pour son gâteau de &l&a32 blés et 3 seaux de lait."
+    conditions: "tag_S0010_random-B"
+    pointers: "S0010_mamie_02-B-oui,S0010_mamie_02-B-non"
+  S0010_mamie_02-C:
+    text: "Ma recette recette indique qu'il me faut &l&a16 sucres et 3 seaux de lait."
+    conditions: "tag_S0010_random-C"
+    pointers: "S0010_mamie_02-C-oui,S0010_mamie_02-C-non"
+  S0010_mamie_03-non:
+    text: "Alors tu iras pour moi cet après-midi, n'est-ce pas ?"
+player_options:
+  S0010_mamie_01:
+    text: "Je peux vous offrir mon aide, de quoi avez-vous besoin ?"
+    pointers: "S0010_mamie_02-A,S0010_mamie_02-B,S0010_mamie_02-C"
+  S0010_mamie_06-oui:
+    text: "Bien sûr, je dois aller chercher quoi aujourd'hui ?"
+    pointers: "S0010_mamie_02-A,S0010_mamie_02-B,S0010_mamie_02-C"
+  S0010_mamie_06-non:
+    text: "Désolé, j'ai dépensé mes derniers cubix dans un équipement tout neuf..."
+    pointers: "S0010_mamie_03-non"
+  S0010_mamie_02-A-oui:
+    text: "C'est du gâteau ! Je vous ramène tout ça rapidement !"
+    events: "tag_S0010_mamie_02-A,journal_S0010_mamie_02-A,deltag_S0010-fin,tag_S0010_inprogress,folder_S0010_message_obj-A,deltag_S0010_random-A"
+  S0010_mamie_02-A-non:
+    text: "Ça ne va pas être de la tarte, le marché est fermé ce matin..."
+    pointers: "S0010_mamie_03-non"
+  S0010_mamie_02-B-oui:
+    text: "C'est du gâteau ! Je vous ramène tout ça rapidement !"
+    events: "tag_S0010_mamie_02-B,journal_S0010_mamie_02-B,deltag_S0010-fin,tag_S0010_inprogress,folder_S0010_message_obj-B,deltag_S0010_random-B"
+  S0010_mamie_02-B-non:
+    text: "Ça ne va pas être de la tarte, le marché est fermé ce matin... "
+    pointers: "S0010_mamie_03-non"
+  S0010_mamie_02-C-oui:
+    text: "C'est du gâteau ! Je vous ramène tout ça rapidement !"
+    events: "tag_S0010_mamie_02-C,journal_S0010_mamie_02-C,deltag_S0010-fin,tag_S0010_inprogress,folder_S0010_message_obj-C,deltag_S0010_random-C"
+  S0010_mamie_02-C-non:
+    text: "Ça ne va pas être de la tarte, le marché est fermé ce matin..."
+    pointers: "S0010_mamie_03-non"

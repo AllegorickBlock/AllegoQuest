@@ -1,0 +1,198 @@
+
+holograms:
+
+  tuto-bienvenue:
+    lines:
+    - "Bienvenue sur &c Land Of Craft&f {player} !"
+    - "Va voir &aPépé Rimé&f ! Il a des choses à te dire :)"
+    location: -21.555;68.000;100.312;Nouveaux
+
+  tuto-objectif:
+    lines:
+    - '&3Land Of Craft &fest un &eserveur Semi-RP et Mini-Jeux&f.'
+    - 'Crée ta propre histoire au sein d''une &6communauté'
+    - '&fde joueurs comme toi !'
+    - 'Deviens un &amodeste paysan&f, un &ccourageux aventurier'
+    - 'ou bien un &3chevalier intrépide'
+    location: -21.500;68.200;90.260;Nouveaux
+    conditions: tag_T0001_pepe_02
+
+  tuto-objectif2:
+    lines:
+    - 'Sur &cLOC &fil y a mille et une choses à faire, comme...'
+    - '» &aSurvivre &fseul ou avec tes amis'
+    - '» Bâtir une &6forteresse&f !'
+    - '» Rejoindre une &eville&f ou en créer une'
+    # - '» Rencontrer une communauté &aaccueillante&f'
+    # - '- Organiser des &cbatailles épiques &fentre les &evilles'
+    - '» Monter en &bgrade &fet accomplir des &equêtes'
+    - 'Atteint &ctes objectifs &fet partage les &favec nous &f:)'
+    location: -23.500;68.600;63.523;Nouveaux
+    conditions: tag_hologramme_1
+
+  tuto-monde:
+    lines:
+    - 'Le Semi-RP est composé de 4 mondes principaux :'
+    - '&3L''Eldorado&f, le monde &2Ressources&f, le &cNether&f et l''&eEnd'
+    location: -21.500;67.600;48.500;Nouveaux
+    conditions: tag_hologramme_2
+    
+  tuto-eldorado:
+    lines:
+    - "L'&3Eldorado &fest le monde principal. Tu peux y construire,"
+    - "découvrir des lieux uniques, fonder ou &aintégrer une ville"
+    - "ou encore &6accéder aux autres mondes&f..."
+    location: -14.5;69.0;37.0;Nouveaux
+    conditions: tag_hologramme_2
+
+  tuto-minage:
+    lines:
+    - 'Le &2Monde Ressources'
+    - 'Idéal pour obtenir toutes sortes de ressources'
+    - 'Il y a 20 fois plus de minerais dans les sous-sols'
+    - 'Le &6minage optimisé &fy est spécialement autorisé'
+    location: -28.000;69.100;34.200;Nouveaux
+    conditions: tag_hologramme_3
+
+  tuto-nether:
+    lines:
+    - 'Le &cNether &fest une terre infernale...'
+    - '...riche en ressources mais pleine de &cdangers &f!'
+    - 'Le &6PVP est autorisé &fet il n''existe aucune protection...'
+    - 'Prêt à relever le défi ? C''est à tes &erisques et périls&f...'
+    location: -30.000;69.100;21.000;Nouveaux
+    conditions: tag_hologramme_3
+
+  tuto-end:
+    lines:
+    - "L'&eEnd&f, c'est l'&5Antre du Dragon &f!"
+    - "Seuls les plus malins peuvent y accéder..."
+    - "&f...&fet &fles &fplus &fvaleureux &eterrasser le Dragon &f!"
+    - "En feras-tu partie ?"
+    location: -18.500;69.100;20.500;Nouveaux
+    conditions: tag_hologramme_3
+    
+  tuto-grade:
+    lines:
+    - 'Il existe &b7 niveaux de grades: 5 communs et 2 spécialisés'
+    - 'Pour &echoisir ta spécialité&f, tu devras rejoindre l''un des &e4 Ordres'
+    - 'En tout, il y a &a21 grades disponibles &f!'
+    - 'Pépé Rimé va t''expliquer les principaux... Va le voir !'
+    location: -6.378;68.000;-11.895;Nouveaux
+  
+  tuto-regles:
+    lines:
+    - "L'&aharmonie &fet le &brespect &fde l'autre sont des choses importantes"
+    - "Forcément il faut &eêtre sympa &favec les autres joueurs"
+    - "Les &carbres volants &fet &cconstructions moches &fne sont   pas autorisés"
+    - "C'est l'essentiel :) Le reste est présenté sur notre &3forum"
+    location: 49;68;9;Nouveaux
+    
+  tuto-grief:
+    lines:
+    - "Le &cgrief &fc'est pas cool !!"
+    - "Appuie sur le &3bouton &f!"
+    - "Tu aimerais que ta maison finisse comme ça ?"
+    - "&6Ne fais pas aux autres &fce que tu ne veux pas &6subir"
+    location: 53.500;69.000;39.000;Nouveaux
+    conditions: tag_hologramme_5
+    
+  tuto-quete:
+    lines:
+    - "Les mondes regorgent de &5mystères à percer&f... Les habitants,"
+    - "la Milice voire des malfrats ont souvent besoin d'&bun coup de main &f!"
+    - "En menant à bien des &eQuêtes&f, tu seras &erécompensé &f!"
+    location: 50.549;68.000;48.000;Nouveaux
+
+  tuto-tp:
+    lines:
+    - "Le &c/spawn &fte permet d'accéder rapidement au spawn"
+    - "Tu pourras définir ton chez toi avec &e/sethome"
+    - "Puis y accéder avec &e/home"
+    - "Il existe des &amoyens de transport &fpour voyager dans l'Eldorado"
+    - "Chaque déplacement coûte un peu d'&bargent&f..."
+    location: 44.0;68.8;101.0;Nouveaux
+
+  tuto-chat:
+    lines:
+    - /\_/\
+    - =( °w° )=
+    - '&8__ &f) &8oo &f( //'
+    - '&8_ &f(__ __)//'
+    location: 38.300;69.200;107.700;Nouveaux
+
+  tuto-villes:
+    lines:
+    - "Lors de &ates aventures&f, tu traverseras &34 régions&f, ayant"
+    - "chacune sa &3ville officielle &fprotégée par des sorts magiques."
+    - "Il en existe d'autres créées par &dles joueurs"
+    - "&fque tu pourras &erejoindre !"
+    location: 77.0;68.5;95.0;Nouveaux
+
+  tuto-villes2:
+    lines:
+    - "Pour construire &6ta maison&f, il faut t'éloigner"
+    - "des &3villes officielles&f. Si tu découvres d'autres villes,"
+    - "il faudra discuter avec le chef pour &bpouvoir t'installer."
+    - "Sinon, tu pourrais te faire chasser !"
+    location: 99.000;68.000;97.000;Nouveaux
+  
+  tuto-villes3:
+    lines:
+    - "&3Kokiri &fest la Capitale de l'Eldorado"
+    - "&bMinätar &fà l'Est, région froide"
+    - "&2Irin Lepta &fau Nord, région tropicale"
+    - "&6Nycène &fau Sud-Ouest, région désertique"
+    location: 87.000;68.500;99.500;Nouveaux
+    
+  tuto-regions:
+    lines:
+    - "Parmi les &3régions&f de l'&2Eldorado&f, 3 d'entre-elles"
+    - "sont paisibles et il est &cinterdit de tuer &fsans raison valable."
+    - "# # #"
+    - "Mais il existe &eune région où règne le chaos &f(au Sud-Ouest)"
+    - "Il y existe des &eguerres entre villes &fet n'importe qui peut te tuer..."
+    - "Il faut donc être très prudent &f!"
+    location: 116.500;68.500;99.500;Nouveaux
+    
+  tuto_boutiques:
+    lines:
+    - Les &bMarchands &fprésentent de belles &eéchoppes
+    - Pour y &avendre &fun objet, utilisez le &aclic gauche
+    - Pour y &cacheter &fun objet, utilisez le &cclic droit
+    location: 113.500;68.000;70.500;Nouveaux
+
+  tuto-jeux:
+    lines:
+    - "Bienvenue au &6Monde des Jeux (MDJ) &f! Le concept ?"
+    # - "C'est le lieu de &dtous &bles &eamusements&f..."
+    - "› &eUn grand parc d'attractions"
+    - "› &dPlein de Mini-Jeux à découvrir"
+    - "› &b4 univers à explorer"
+    # - "Il y a plein de &dmini-jeux&f: &bSpleef&f, &aPaintball&f et d'autres !"
+    # - Tout comme les autres mondes, &fon y accède via le &eHub &f(/hub)
+    # - "Le MDJ est un monde totalement distinct du Semi-RP :)"
+    location: 133.000;71.500;24.000;Nouveaux
+
+  tuto-fin:
+    lines:
+    - Bravo ! Tu as fini le tuto ! Sans t'endormir en plus !
+    - Tu as surement encore plein de &cquestions&f...
+    - Les &3joueurs &fet &3notre équipe &fse feront un plaisir d'y répondre !
+    - Les &6guides &fet &6tutoriels &fsur notre site peuvent aussi t'aider !
+    location: 183.000;71.000;24.000;Nouveaux
+
+# tuto-fin2:
+    # lines:
+    # - 'Une dernière chose... Voici les principaux postes au sein de notre équipe :'
+    # - Les &4Admins&f gèrent le serveur et assurent son développement
+    # - Les &3Modos&f règlent les problèmes entre les joueurs
+    # - Les &dAnimateurs&f préparent des events et des mini-jeux
+    # - Les &6Architectes&f construisent plein de belles choses
+    # location: 189.567;69.244;-13.219;Nouveaux
+
+  tuto-go:
+    lines:
+    - "Prêt à partir à l'&2aventure&f ?"
+    - "Ce portail t'emmènera dans l'&3Eldorado &f!"
+    location: 207.000;67.800;24.400;Nouveaux

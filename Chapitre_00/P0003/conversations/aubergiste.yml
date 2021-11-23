@@ -1,0 +1,37 @@
+---
+quester: "Aubergiste"
+stop: "false"
+first: "poule,P0003_070,P0004_lien"
+NPC_options:
+  poule:
+    text: "Bonjour voyageur ! Ici, le houblon est local et la bière est fraîche !\
+      \ Mais si tu cherches de l'aide, tu devrais rencontrer &bMaître Poule&f, sur\
+      \ la Grand-Place."
+    conditions: "!Chapitre_00-P0001.tag_P0001-fin"
+  P0003_070:
+    text: "*Snif snif* Tu sens le poisson ! C'est le Pêcheur qui t'envoie pour ma\
+      \ commande ?"
+    conditions: "tag_P0003_050,!tag_P0003-fin-aubergiste,!tag_P0003-fin-pecheur"
+    pointers: "P0003_050-oui,P0003_050-non"
+  P0004_lien:
+    text: " "
+    events: "folder_conversation_P0004"
+    conditions: "tag_P0003-fin-aubergiste"
+  P0003_070-bis:
+    text: "Rhaaa... Je me demande bien ce que fait le &bPêcheur&f... Il sait que ma\
+      \ commande est très urgente pourtant !"
+    conditions: "!tag_P0003_050,!tag_P0003-fin-pecheur,tag_P0002-fin"
+  P0003_060:
+    text: "Ah, il était temps ! Tout doit être prêt pour le banquet organisé par M.\
+      \ le Maire, il me reste encore &ebeaucoup de choses à faire &f!"
+    events: "tag_P0003-fin-aubergiste,take_poisson,reward_P0003-fin-aubergiste,folder_reset,Chapitre_00-P0001.point_chap00,Chapitre_00-P0001.folder_retour_poule,objective_conversation_P0004,folder_after-aubergiste"
+    conditions: "item_poisson"
+player_options:
+  P0003_050-oui:
+    text: "C'est exact, le Pêcheur m'envoie pour vous apporter votre commande : voici\
+      \ vos poissons frais !"
+    conditions: "item_poisson"
+    pointers: "P0003_060"
+  P0003_050-non:
+    text: "Tout à fait, je vais repasser vous apporter vos 12 poissons !"
+    conditions: "!item_poisson"

@@ -1,0 +1,30 @@
+---
+quester: "Alfred"
+stop: "false"
+first: "P0009_16"
+NPC_options:
+  P0009_16:
+    text: "Salut ! Je suis Alfred ! Je m'y connais en portails ! Celui-ci mène au\
+      \ &cMonde Ressources&f. "
+    conditions: "tag_P0009_03,!tag_P0009_17,!Chapitre_00-P0001.tag_chap_00-fin"
+    pointers: "P0009_16"
+  P0009_17:
+    text: "Hé bien c'est simple : c'est le monde avec le plus de minerais ! Tu peux\
+      \ y &6récolter tout ce que tu veux &fet faire du&a minage optimisé&f, sans risquer\
+      \ d'être tué par un autre joueur !"
+    conditions: "item_invitation"
+    pointers: "P0009_17-2"
+  P0009_17-2:
+    text: "Génial ! J'ai hâte d'y être, je vais me régaler, comme toujours !"
+    events: "tag_P0009_17,take_invitation,point_invitation,tag_delete_indice,folder_message"
+    conditions: "item_invitation"
+player_options:
+  P0009_16:
+    text: "Oh ! Qu’est-ce que je peux faire au Monde Ressources ?"
+    conditions: "item_invitation"
+    pointers: "P0009_17"
+  P0009_17-2:
+    text: "Merci pour les infos ! Je venais pour te donner cette invitation de la\
+      \ part de M. le Maire."
+    conditions: "item_invitation"
+    pointers: "P0009_17-2"

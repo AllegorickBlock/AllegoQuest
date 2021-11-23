@@ -1,0 +1,66 @@
+---
+quester: "Leisya"
+stop: "false"
+first: "leisya_poule,P0007_010,P0007_050"
+NPC_options:
+  leisya_poule:
+    text: "Tu as l'air perdu, mon pauvre ! Va trouver &eMaître Poule&f près de la\
+      \ Mairie, il pourra t'aider..."
+    conditions: "!Chapitre_00-P0001.tag_P0001-fin,!Chapitre_00-P0001.tag_chap_00-fin"
+  P0007_010:
+    text: "Eh toi l'vagab... Euh... l'aventurier super costaud là ! Sache que c'est\
+      \ ton &2jour de chance &f!"
+    conditions: "!tag_P0007_020,!tag_P0007-fin,Chapitre_00-P0004.tag_P0004-fin,!Chapitre_00-P0001.tag_chap_00-fin"
+    pointers: "P0007_010-oui,P0007_010-non"
+  P0007_050:
+    text: "Te revoilà, %player% ! Tu as pu te procurer ce que je t'ai demandé ?"
+    conditions: "tag_P0007_020,!Chapitre_00-P0001.tag_chap_00-fin"
+    pointers: "P0007_050-oui,P0007_050-non"
+  P0007_020:
+    text: "Eh bien vois-tu, je cherche un &afournisseur &fde confiance pour mon commerce.\
+      \ Accepte de &ebosser pour moi&f, et tu seras dignement récompensé ! T'en penses\
+      \ quoi?"
+    pointers: "P0007_020-1,P0007_020-2"
+  P0007_030:
+    text: "Tu sais flairer les bonnes affaires toi ! Pour commencer je vais avoir\
+      \ besoin de &7poudre d'os&f, du &6bois &fet des &agraines !"
+    pointers: "P0007_030-oui,P0007_030-non"
+  P0007_040-oui:
+    text: "Pour honorer toutes mes commandes, il me faut &71 stack de poudre d'os&f,\
+      \ &632 bûches de chêne&f, &a1 stacks de graines de blé&f et &61 stack de stone&f. Ne\
+      \ perds pas de temps !"
+    events: "tag_P0007_020,journal_P0007_020,display_message_040"
+  P0007_060:
+    text: "Mhhh... Le compte y est ! A l'avenir, on pourrait peut-être &ccollaborer&f,\
+      \ toi et moi... A la prochaine, aventurier !"
+    events: "tag_P0007-fin,foler_reset,Chapitre_00-P0001.point_chap00,Chapitre_00-P0001.folder_retour_poule,take_charbon,reward_P0007,remove_item"
+    conditions: "and_item_quete"
+  P0007_040-non:
+    text: "Ma commande peut attendre un peu... Mais ne traîne pas trop, quelqu'un\
+      \ d'autre pourrait saisir cette opportunité !"
+    events: "tag_P0007_030_non"
+player_options:
+  P0007_010-oui:
+    text: "Ah oui ? Dis-m'en plus, je suis tout ouïe !"
+    pointers: "P0007_020"
+  P0007_010-non:
+    text: "&o[Repartir comme si de rien n'était]"
+  P0007_050-oui:
+    text: "Bien sûr ! Voilà la marchandise !"
+    conditions: "and_item_quete"
+    pointers: "P0007_060"
+  P0007_050-non:
+    text: "J'ai encore quelques ressources à récupérer..."
+    events: "display_message_040"
+    conditions: "!and_item_quete"
+  P0007_020-1:
+    text: "Mhhh intéressant... Qu'est-ce que je dois vous fournir ?"
+    pointers: "P0007_030"
+  P0007_020-2:
+    text: "Je n'ai aucunement l'envie de me mêler au commerce, bon vent !"
+  P0007_030-oui:
+    text: "..."
+    pointers: "P0007_040-oui"
+  P0007_030-non:
+    text: "Je n'ai pas envie de jouer les livreurs."
+    pointers: "P0007_040-non"

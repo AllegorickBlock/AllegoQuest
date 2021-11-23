@@ -1,0 +1,23 @@
+---
+npcs:
+  381: "transporteur_D"
+  407: "charge_J"
+  14: "transporteur_J"
+  408: "charge_N"
+  15: "transporteur_N"
+  24: "transporteur_J"
+  379: "transporteur_D"
+  29: "transporteur_N"
+  13: "charge_K"
+  409: "charge_D"
+variables:
+  nbr_carnet: "10"
+  prix_carnet: "80"
+  prix_ticket: "1"
+  max_ticket: "50"
+  min_remplir_ticket: "15"
+  prix_voyage: "10"
+  ticket_bleu: "%point.ticket_bleu.amount%"
+  ticket_vert: "%point.ticket_vert.amount%"
+  ticket_jaune: "%point.ticket_jaune.amount%"
+  ticket_universel: "%point.ticket_universel.amount%"

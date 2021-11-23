@@ -1,0 +1,32 @@
+---
+tag_P0003_020: "tag add P0003_020"
+tag_P0003_020-reussite: "tag add P0003_020-reussite"
+tag_P0003_050: "tag add P0003_050"
+tag_P0003-fin-pecheur: "tag add P0003-fin-pecheur"
+journal_P0003_020: "journal add P0003_020"
+journal_P0003_020-reussite: "journal add P0003_020-reussite"
+journal_P0003-pecheur: "journal add P0003-pecheur"
+journal_P0003-aubergiste: "journal add P0003-aubergiste"
+objective_P0003_020: "objective start P0003_020"
+take_poisson: "take poisson:6"
+reward_P0003: "run ^give canne_peche_enchant:1 ^money +50"
+message_reward-pecheur: "message &2&l(!) &r&aTu as gagné &e50 Cubix &a+ &e1 canne\
+  \ à pêche Lure II"
+message_reward-aubergiste: "message &2&l(!) &r&aTu as gagné &e10 tartes à la citrouille\
+  \ &aet &e65 cubix &a!"
+folder_reset: "folder reset_tag,reset_journal"
+reset_tag: "run ^tag del P0003_020 ^tag del P0003_020-reussite"
+reset_journal: "run ^journal del P0003_020 ^journal del P0003_020-reussite"
+tag_P0003-fin-aubergiste: "tag add P0003-fin-aubergiste"
+give_canne_cassee: "give canne_peche_casse:1"
+message_P0003_020-reussite: "message &b&l(!) &3Tu peux maintenant apporter les poissons\
+  \ au Pêcheur."
+journal_P0003-fin-aubergiste: "journal add P0003-fin-aubergiste"
+reward_P0003-fin-aubergiste: "run ^give tarte_citrouille:10 ^money +65"
+reward_P0003-fin-aubergiste-2: "money +25"
+conversation_P0004: "conversation Chapitre_00-P0004.tavernier"
+folder_conversation_P0004: "folder conversation_P0004"
+objective_conversation_P0004: "objective start conversation_P0004"
+folder_after-pecheur: "folder journal_P0003-pecheur,message_reward-pecheur delay:0.5"
+folder_after-aubergiste: "folder journal_P0003-fin-aubergiste,message_reward-aubergiste\
+  \ delay:0.5"

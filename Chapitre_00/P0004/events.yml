@@ -1,0 +1,27 @@
+---
+tag_P0004_020: "tag add P0004_020"
+tag_P0004_080-tavernier: "tag add P0004_080-tavernier"
+tag_P0004_090: "tag add P0004_090"
+tag_P0004_100: "tag add P0004_100"
+tag_P0004-fin: "tag add P0004-fin"
+deltag_P0004_080-tavernier: "tag del P0004_080-tavernier"
+take_sucre_ble: "take sucre:32,ble:64"
+journal_P0004_020: "journal add P0004_020"
+journal_P0004_050: "journal add P0004_050"
+journal_P0004_060: "journal add P0004_060"
+journal_P0004-fin: "journal add P0004-fin"
+reward_P0004: "run ^give poisson_cuit:16 ^message &2&l(!)&a Tu as gagné &e60 Cubix + 16 poissons cuits &a! ^money +60"
+folder_reward_P0004: "folder reward_P0004 delay:0.5"
+folder_reset: "folder reset_tag,reset_journal"
+folder_request: "folder message_request delay:1"
+folder_after: "folder message_recompense delay:1"
+message_request: "message &b&l(!)&3 Tu dois apporter 32 sucres et 64 blés au Sommelier"
+reset_journal: "run ^journal del journal_P0004_020 ^journal del journal_P0004_050\
+  \ ^journal del journal_P0004_060"
+message_recompense: "message &2&l(!) &r&aVous recevez 60 Cubix et 10 tartes à la citrouille\
+  \ confectionnées par Mamie Chouquette"
+reset_tag: "run ^tag del P0004_020 ^tag del P0004_050 ^tag del P0004_060 ^tag del\
+  \ P0004_090 ^tag del P0004_100 ^tag del Chapitre_00-P0003.P0003_050"
+folder_deblocage: "folder message_debloquage delay:0.5"
+message_debloquage: "message &b&l(!) &3Deux nouvelles quêtes ont été débloquées !\
+  \ Tu peux aller voir &cAshford &3et &aLeysia &3qui se trouvent dans la Vieille Ville de Kokiri."

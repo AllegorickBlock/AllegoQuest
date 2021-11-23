@@ -1,0 +1,122 @@
+---
+quester: "Përip Eyssi"
+stop: "false"
+first: "P0008_charge_D_00-1,P0008_charge_D_00-2,P0008_charge_D_10,P0008_charge_D_100,P0008_charge_D_110,P0008_charge_D_60"
+NPC_options:
+  P0008_charge_D_00-1:
+    text: "&cNos services &ffont l'objet d'une &cimportante maintenance&f. &fPour\
+      \ le moment je suis complètement débordé, mais &6repassez me voir plus tard\
+      \ &f!"
+    conditions: "!Chapitre_00-P0009.tag_P0009-fin,!tag_unlock,!Chapitre_00-P0001.tag_chap_00-fin"
+  P0008_charge_D_00-2:
+    text: "Si vous voulez une &cautorisation &fpour voyager entre &cKokiri &fet &eNycè\
+      ne, &fje vous conseille d'aller voir le &cResponsable des transports &fà la\
+      \ &6Mairie de Kokiri !"
+    conditions: "Chapitre_00-P0009.tag_P0009-fin,!tag_P0008_charge_debut,!tag_unlock,!Chapitre_00-P0001.tag_chap_00-fin"
+  P0008_charge_D_10:
+    text: "Bonjour à vous ! Que me vaut votre visite ?"
+    conditions: "tag_P0008_charge_debut,!tag_unlock,!tag_P0008_charge_D-finish,!Chapitre_00-P0001.tag_chap_00-fin"
+    pointers: "P0008_charge_D_10"
+  P0008_charge_D_20:
+    text: "A vrai dire je m'en doutais, mais il est plutôt rare que l'on me demande\
+      \ cette accréditation ! Nycène n'est pas une destination qui attire..."
+    pointers: "P0008_charge_D_20"
+  P0008_charge_D_30:
+    text: "Et ça ne va pas s'arranger... Enfin j'imagine que si vous avez fait un\
+      \ si long chemin jusqu'ici, vous méritez votre accréditation ! *écrit dans son\
+      \ registre* C'est &eKaliss &fqui s'occupe du voyage, ses lamas se trouvent &csortie\
+      \ ouest&f."
+    pointers: "P0008_charge_D_30"
+  P0008_charge_D_40:
+    text: "Ah ! Attendez ! Si vous retournez à Kokiri, autant que vous ayez des tickets\
+      \ de voyage. Pour cela &cj'ai une mission &fà vous proposer, &6en échange de\
+      \ tickets&f."
+    pointers: "P0008_charge_D_40-1,P0008_charge_D_40-2"
+  P0008_charge_D_50:
+    text: "Très bien ! Je vous souhaite bonne route ! N'hésitez pas à revenir si vous\
+      \ changez d'avis"
+  P0008_charge_D_60:
+    text: "Bonjour aventurier ! Je peux vous aider ?"
+    conditions: "tag_unlock"
+    pointers: "P0008_charge_D_60-passeport,P0008_charge_D_60-carnet,P0008_charge_D_60-transport"
+  P0008_charge_D_60-transport:
+    text: "Alors il faut que tu traverse la rivière et que tu prennes la sortie est.\
+      \ Kallis t'y attend avec son fidèle lama."
+  P0008_charge_D_70:
+    text: "Bien sûr ! Pour le carnet de $prix_ticket$ tickets ça vous fera $nbr_carnet$\
+      \ cubix ça vous va ?"
+    pointers: "P0008_charge_D_70-oui,P0008_charge_D_70-non"
+  P0008_charge_D_80:
+    text: "Bien sûr ! Voilà vos tickets, bon voyage !"
+    events: "give_carnet_jaune,money-prix_carnet"
+    conditions: "money_prix_carnet"
+  P0008_charge_D_90:
+    text: "Bien sûr mais prend en soin quand même !"
+    events: "give_carnetGUI"
+    conditions: "!item_carnetGUI"
+  P0008_charge_D_100:
+    text: "Les voyages sont plutôt dangereux dans cette région. En plus de la menace\
+      \ constante des combats, je dois faire face aux &emorts-vivants&f. Je te donnerai\
+      \ des tickets si tu me débarrasses de &c10 de ces créatures&f !"
+    conditions: "tag_P0008_charge_D-finish,!tag_unlock,!tag_P0008_charge_D_100,!Chapitre_00-P0001.tag_chap_00-fin"
+    pointers: "P0008_charge_D_100-oui,P0008_charge_D_100-non"
+  P0008_charge_D_110:
+    text: "Te revoilà ! Alors tu t'es occupé des zombies ?"
+    conditions: "tag_P0008_charge_D_100,!tag_P0008_charge_D_120,!Chapitre_00-P0001.tag_chap_00-fin"
+    pointers: "P0008_charge_D_110-oui,P0008_charge_D_110-non"
+  P0008_charge_D_120:
+    text: "Excellente nouvelle ! Tu m'as été d'une grande aide, &6voilà des tickets\
+      \ &f! Bonne route !"
+    events: "give_ticket_jaune+5,tag_P0008_charge_D_120"
+player_options:
+  P0008_charge_D_10:
+    text: "J'arrive de Kokiri et souhaite obtenir l'autorisation d'utiliser vos transports."
+    pointers: "P0008_charge_D_20"
+  P0008_charge_D_20:
+    text: "Il paraît que la région est au coeur de graves conflits..."
+    pointers: "P0008_charge_D_30"
+  P0008_charge_D_30:
+    text: "Je vous remercie ! Je vais aller la voir dans ce cas."
+    pointers: "P0008_charge_D_40"
+  P0008_charge_D_40-1:
+    text: "Quel serait ce service ?"
+    events: "tag_P0008_charge_D-finish,journal_charges_D,folder_return-K"
+    pointers: "P0008_charge_D_100"
+  P0008_charge_D_40-2:
+    text: "Je dois vraiment y aller, mais je repasserais peut-être !"
+    events: "tag_P0008_charge_D-finish,journal_charges_D,folder_return-K"
+    pointers: "P0008_charge_D_50"
+  P0008_charge_D_60-passeport:
+    text: "J'ai perdus mon passeport c'est possible d'en avoir un autre ?"
+    conditions: "!item_carnetGUI"
+    pointers: "P0008_charge_D_90"
+  P0008_charge_D_60-transport:
+    text: "Où ce trouve le transport en lama ?"
+    pointers: "P0008_charge_D_60-transport"
+  P0008_charge_D_60-carnet:
+    text: "J'aimerais acheter un lot de $nbr_carnet$ tickets pour voyager à dos de\
+      \ lama !"
+    conditions: "item_carnetGUI,!point_max_carnet_jaune"
+    pointers: "P0008_charge_D_70"
+  P0008_charge_D_70-oui:
+    text: "Oui je les prends."
+    conditions: "money_prix_carnet,!point_max_carnet_jaune"
+    pointers: "P0008_charge_D_80"
+  P0008_charge_D_70-non:
+    text: "Tout compte fait je n’en veux pas."
+    conditions: "!money_prix_carnet"
+  P0008_charge_D_100-oui:
+    text: "Mon épée est vôtre ! Je reviendrai vous voir quand j'aurai tué 10 zombies\
+      \ !"
+    events: "tag_P0008_charge_D_100,objective_charge_D-zombie"
+  P0008_charge_D_100-non:
+    text: "Pas tellement j’ai peur des zombies..."
+    pointers: "P0008_charge_D_50"
+  P0008_charge_D_110-oui:
+    text: "Tout est sous contrôle ! Vous aurez moins de problèmes désormais."
+    conditions: "tag_charge_D-zombie"
+    pointers: "P0008_charge_D_120"
+  P0008_charge_D_110-non:
+    text: "Non pas encore, j'y retourne."
+    events: "rappel_D-quest"
+    conditions: "!tag_charge_D-zombie"

@@ -1,0 +1,6 @@
+---
+P0002_030_obj-01: "location 9;76;202;Ressources 3000 events:display_P0002_01-reussite-1,display_P0002_01-reussite-2,objective_P0002_030_obj-02"
+P0002_030_obj-02: "block IRON_ORE -8 events:display_P0002_02-reussite,objective_P0002_030_obj-03\
+  \ condition:minage notify:4"
+P0002_030_obj-03: "smelt IRON_INGOT 8 event:journal_P0002_030-reussite,tag_P0002_030_obj-03-reussite,display_P0002_030-reussite\
+  \ notify"

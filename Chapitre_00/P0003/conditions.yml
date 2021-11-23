@@ -1,0 +1,9 @@
+---
+tag_P0003_020: "tag P0003_020"
+tag_P0003_020-reussite: "tag P0003_020-reussite"
+tag_P0003_050: "tag P0003_050"
+tag_P0003-fin-pecheur: "tag P0003-fin-pecheur"
+tag_P0003-fin-aubergiste: "tag P0003-fin-aubergiste"
+item_poisson: "item poisson:6"
+or_peche: "or !tag_P0003_020-reussite,!item_poisson"
+tag_P0002-fin: "tag P0002-fin"

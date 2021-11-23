@@ -1,0 +1,12 @@
+---
+tag_P0007_020: "tag P0007_020"
+tag_P0007-fin: "tag P0007-fin"
+tag_P0007_020_obj-01: "tag P0007_020_obj-01"
+tag_P0007_020_obj-01-fin: "tag P0007_020_obj-01-fin"
+item_charbon: "item charbon:25"
+and_item_quete: "and item_dye,item_log,item_graine,item_stone"
+item_dye: "item dye:64"
+item_log: "item log:32"
+item_graine: "item wheat_seeds:64"
+item_stone: "item stone:64"
+tag_P0007_030_non: "tag P0007_030_non"

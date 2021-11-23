@@ -1,0 +1,42 @@
+---
+quester: "Malkor"
+stop: "false"
+first: "P0008_trans_N_00-1,P0008_trans_N_00-2,P0008_trans_N_00-3,P0008_trans_N_10"
+NPC_options:
+  P0008_trans_N_00-1:
+    text: "Navré mais je ne peux vous faire voyager! &cNos transports sont en maintenance&f,\
+      \ mais ils seront &ede nouveau actifs sous peu &f!"
+    conditions: "!Chapitre_00-P0009.tag_P0009-fin,!tag_P0008_charge_debut,!Chapitre_00-P0001.tag_chap_00-fin"
+  P0008_trans_N_00-2:
+    text: "Pour voyager à bord, il vous faut d'abord une accréditation. Le &cResponsable\
+      \ des transports&f à la &6Mairie &fvous expliquera comment l'obtenir !"
+    conditions: "Chapitre_00-P0009.tag_P0009-fin,!tag_P0008_charge_debut,!Chapitre_00-P0001.tag_chap_00-fin"
+  P0008_trans_N_00-3:
+    text: "Bien le bonjour ! *Inspecte passeport* Pour pouvoir voyager à bord, il\
+      \ va d'abord falloir vous rendre à Minätar, et parler à &cAlabor Dage &f! A\
+      \ bientôt !\n"
+    conditions: "tag_P0008_charge_debut,!tag_unlock,!tag_P0008_charge_N-finish,!Chapitre_00-P0001.tag_chap_00-fin"
+  P0008_trans_N_10:
+    text: "Salutations, pour voyager et emprunter le bateau, c'est un ticket ou $prix_voyage$\
+      \ cubix !"
+    pointers: "P0008_trans_N_10-ticket,P0008_trans_N_10-universel,P0008_trans_N_10-money,P0008_trans_N_10-non"
+  P0008_trans_N_10-money:
+    text: "Te voilà arrivé à destination, %player% ! Le voyage t'a coûté $prix_voyage$\
+      \ Cubix."
+    events: "money-prix_voyage,tp_neige-kokiri"
+    conditions: "money_prix_voyage"
+player_options:
+  P0008_trans_N_10-ticket:
+    text: "Je vais payer avec un ticket !"
+    events: "take_ticket_bleu-1,tp_neige-kokiri"
+    conditions: "point_carnet_bleu-1,!point_ticket_universel-1"
+  P0008_trans_N_10-universel:
+    text: "J'ai un ticket universel, j'aimerai l'utiliser"
+    events: "take_ticket_universel,tp_neige-kokiri"
+    conditions: "point_ticket_universel-1"
+  P0008_trans_N_10-money:
+    text: "Je paie en cubix !"
+    conditions: "money_prix_voyage"
+    pointers: "P0008_trans_N_10-money"
+  P0008_trans_N_10-non:
+    text: "Finalement je vais rester ici encore un peu."

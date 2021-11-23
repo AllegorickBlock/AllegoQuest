@@ -1,0 +1,15 @@
+---
+objective_N-start: "Tu dois te rendre vers ces coordonées et tuer 3 ours. 3723 63\
+  \ 2227"
+charges: "Je dois me rendre à Minätar, Irin Lepta et Nycène pour y trouver les Chargé\
+  s des transports. Ils me donneront la permission d'utiliser les moyens de transport."
+charges_J: "Maintenant que j'ai parlé à Canopé Riple, je peux voyager entre Kokiri\
+  \ et Irin Lepta grâce au dirigeable !"
+charges_D: "Je suis parvenu jusqu'à Përip Eyssi, j'ai maintenant la possibilité de\
+  \ voyager entre Kokiri et Nycène !"
+charges_N: "Je me suis rendu auprès de Alabor Dage, à présent je peux utiliser le\
+  \ bateau pour voyager entre Kokiri et Minätar !"
+return-K: "J'ai toutes les accréditations à présent ! Je peux retourner voir le Responsable\
+  \ des transports à Kokiri pour le lui annoncer."
+unlock: "A présent je peux utiliser les transports entre les 4 principales villes\
+  \ de l'Eldorado. Autant dire que grâce à ça, je vais économiser des semelles !"

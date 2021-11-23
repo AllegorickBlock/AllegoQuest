@@ -1,0 +1,42 @@
+---
+quester: "Albedor"
+stop: "false"
+first: "P0008_trans_J_00-1,P0008_trans_J_00-2,P0008_trans_J_00-3,P0008_trans_J_10"
+NPC_options:
+  P0008_trans_J_00-1:
+    text: "Désolé mon gars ! Mais les transports &csont en maintenance pour le moment&f,\
+      \ je ne fais voayger personne! A bientôt !"
+    conditions: "!Chapitre_00-P0009.tag_P0009-fin,!tag_P0008_charge_debut,!Chapitre_00-P0001.tag_chap_00-fin"
+  P0008_trans_J_00-2:
+    text: "Pour pouvoir voyager, il faut que vous obteniez une accréditation ! Allez\
+      \ voir le Responsable des transports à la Mairie, il vous expliquera tout !"
+    conditions: "Chapitre_00-P0009.tag_P0009-fin,!tag_P0008_charge_debut,!Chapitre_00-P0001.tag_chap_00-fin"
+  P0008_trans_J_00-3:
+    text: "Bonjour ! *Regarde passeport* Je vois que vous n'avez pas encore l'accré\
+      ditation. Il va d'abord falloir vous rendre à &aIrin Lepta &fet parler à &cCanopé\
+      \ Riple !"
+    conditions: "tag_P0008_charge_debut,!tag_unlock,!tag_P0008_charge_J-finish,!Chapitre_00-P0001.tag_chap_00-fin"
+  P0008_trans_J_10:
+    text: "Salut mon gars ! Pour voyager et utiliser le dirigeable, c'est un ticket\
+      \ ou $prix_voyage$ cubix !"
+    pointers: "P0008_trans_J_10-ticket,P0008_trans_J_10-universel,P0008_trans_J_10-money,P0008_trans_J_10-non"
+  P0008_trans_J_10-money:
+    text: "Te voilà arrivé à destination, %player% ! Le voyage t'a coûté $prix_voyage$\
+      \ Cubix."
+    events: "tp_jungle-kokiri,money-prix_voyage"
+    conditions: "money_prix_voyage"
+player_options:
+  P0008_trans_J_10-ticket:
+    text: "Voilà un ticket !"
+    events: "take_ticket_vert-1,tp_jungle-kokiri"
+    conditions: "point_ticket_vert-1,!point_ticket_universel-1"
+  P0008_trans_J_10-universel:
+    text: "J'ai un ticket universel, je veux l'utiliser."
+    events: "take_ticket_universel,tp_jungle-kokiri"
+    conditions: "point_ticket_universel-1"
+  P0008_trans_J_10-money:
+    text: "Je vais payer en cubix !"
+    conditions: "money_prix_voyage"
+    pointers: "P0008_trans_J_10-money"
+  P0008_trans_J_10-non:
+    text: "Finalement je vais rester ici encore un peu."

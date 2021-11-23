@@ -1,0 +1,44 @@
+---
+quester: "Oliana"
+stop: "false"
+first: "oliana_poule,P0005_010"
+NPC_options:
+  oliana_poule:
+    text: "Vous avez l'air perdu, mon pauvre ! Un certain &eMaître Poule &faide les\
+      \ nouveaux arrivants en ville. Il est sur la &bGrand-Place&f, vous devriez aller\
+      \ le voir !"
+    conditions: "!Chapitre_00-P0001.tag_P0001-fin,!Chapitre_00-P0001.tag_chap_00-fin"
+  P0005_010:
+    text: "Hum.. Bonjour, on ne se connait pas je crois... Je suis &eOliana &f! Et\
+      \ toi, qui..."
+    conditions: "tag_P0005_020,!tag_P0005_040,!Chapitre_00-P0001.tag_chap_00-fin"
+    pointers: "P0005_010-oui,P0005_010-non"
+  P0005_020:
+    text: "Ah ! C'est... Uuune.... trèès... belle... &afougère&f, c'est plutôt...\
+      \ Original ! Mais qui êtes-vous pour m'offrir ce joli présent ?"
+    conditions: "item_arbremort"
+    pointers: "P0005_020-1,P0005_020-2"
+  P0005_030:
+    text: "Ashford ?! Ooh... Eh bien tout s'explique ! Sacré Ashford ! Il a toujours\
+      \ eu &cdes goûts... très particuliers &f! Enfin... Ça me touche ! Tu peux le\
+      \ remercier de ma part ?"
+    events: "take_arbremort,tag_P0005_040,journal_P0005_040,message_return_ashford"
+    conditions: "item_arbremort"
+player_options:
+  P0005_010-oui:
+    text: "Je viens vous donner ceci, il s'agit d'un... cadeau !"
+    conditions: "item_arbremort"
+    pointers: "P0005_020"
+  P0005_010-non:
+    text: "J'ai quelque chose pour vous, mais je l'ai oublié ! Je reviens !"
+    conditions: "!item_arbremort"
+  P0005_020-1:
+    text: "Oh ce n'est pas de moi ! Je suis %player% et c'est Ashford, du musée de\
+      \ Kokiri, qui m'a demandé de vous l'apporter."
+    conditions: "item_arbremort"
+    pointers: "P0005_030"
+  P0005_020-2:
+    text: "Je suis %player%, pour vous servir ! Ashford voulait vous l'offrir lui-mê\
+      me mais il n'a pas osé venir !"
+    conditions: "item_arbremort"
+    pointers: "P0005_030"

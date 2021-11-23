@@ -1,0 +1,163 @@
+---
+quester: "Alabor Dage"
+stop: "false"
+first: "P0008_charge_N_00-1,P0008_charge_N_00-2,P0008_charge_N_10,P0008_charge_N_110,P0008_charge_N_130,P0008_charge_N_150"
+NPC_options:
+  P0008_charge_N_00-1:
+    text: "Navré, mais &cnos services sont en maintenance&f, je ne peux rien faire\
+      \ pour vous actuellement. Mais &6repassez me voir &fdans quelques temps !"
+    conditions: "!Chapitre_00-P0009.tag_P0009-fin,!tag_unlock,!Chapitre_00-P0001.tag_chap_00-fin"
+  P0008_charge_N_00-2:
+    text: "Si vous voulez pouvoir utiliser notre navire, rendez-vous à la &6Mairie\
+      \ de Kokiri &fpour parler au &cResponsable des transport &f! Sinon je ne peux\
+      \ rien pour vous !"
+    conditions: "Chapitre_00-P0009.tag_P0009-fin,!tag_P0008_charge_debut,!tag_unlock,!Chapitre_00-P0001.tag_chap_00-fin"
+  P0008_charge_N_10:
+    text: "*Fixe les documents sur son bureau* ..."
+    conditions: "tag_P0008_charge_debut,!tag_unlock,!tag_P0008_charge_N-finish,!Chapitre_00-P0001.tag_chap_00-fin"
+    pointers: "P0008_charge_N_10"
+  P0008_charge_N_20:
+    text: "*Relève brusquement la tête* Hein ?! Oui c'est pour quoi ? Si c'est encore\
+      \ pour demander des dons de cubix pour l'ASN j'ai déjà donné il y a deux jours\
+      \ ! Je ne roule pas sur les cubix moi !"
+    pointers: "P0008_charge_N_20"
+  P0008_charge_N_30:
+    text: "Ah... Je vois ! ... Heu, oui l'ASN c'est une organisation qui veut aider\
+      \ les habitants de Nycène. Difficile de les rater, ce sont les seuls ici à s'inté\
+      resser au sort de cette région-là. Enfin bref l'accréditation donc ?"
+    pointers: "P0008_charge_N_30"
+  P0008_charge_N_40:
+    text: "Le mot magique c'est quoi ?"
+    pointers: "P0008_charge_N_40"
+  P0008_charge_N_50:
+    text: "Bah voilà c'est pas compliqué ! C'est que ça fait presque du bien d'entendre\
+      \ ça... Depuis que je travaille ici, c'est même pas si on te salue correctement.\
+      \ Les gens d'ici ne supportent décidément pas ceux qui viennent de la Capitale."
+    pointers: "P0008_charge_N_50"
+  P0008_charge_N_60:
+    text: "Pas tous, encore heureux. Mais pour une majorité oui. Je pense que c'est\
+      \ bien la ville qui a encore aujourd'hui le moins bien digéré l'époque de l'occupation\
+      \ par l'Empire."
+    pointers: "P0008_charge_N_60-1,P0008_charge_N_60-2"
+  P0008_charge_N_70:
+    text: "Pas autant qu'ici à ce que je sais. A Irin Lepta, savoir pardonner est\
+      \ une valeur importante. Quant à Nycène, la région est dans un important conflit\
+      \ depuis la fin de l'Empire. Cela les a empêché de développer un tel caractè\
+      re je suppose..."
+    pointers: "P0008_charge_N_60-2"
+  P0008_charge_N_80:
+    text: "Rah les gens sont si pressés, on ne peut même plus discuter ! J'envie Canopé\
+      \ à Irin Lepta, qui doit clairement plus s'amuser que moi ici ! Enfin bref...\
+      \ *écrit dans son registre* Voilà vous êtes autorisé à utiliser le bateau au\
+      \ port."
+    pointers: "P0008_charge_N_80"
+  P0008_charge_N_90:
+    text: "Une minute le pressé ! Vous semblez équipé pour vous battre... &eJ'ai une\
+      \ mission à vous proposer&f ! Enfin, sauf si vous n'avez vraiment pas le temps,\
+      \ je ne tiens pas à vous retenir..."
+    pointers: "P0008_charge_N_90-oui,P0008_charge_N_90-non"
+  P0008_charge_N_100:
+    text: "A la prochaine ! Reviens me voir si tu changes d'avis..."
+    events: "tag_P0008_charge_N-finish,journal_charges_N,folder_return-K"
+  P0008_charge_N_110:
+    text: "Voilà le problème: il y a de plus en plus &bd'ours blancs &faux alentours\
+      \ de la ville. Le Järl recherche constamment des gens &cpour les chasser&f,\
+      \ tu penses pouvoir t'en charger ?"
+    conditions: "tag_P0008_charge_N-finish,!tag_unlock,!tag_P0008_charge_N_120,!Chapitre_00-P0001.tag_chap_00-fin"
+    pointers: "P0008_charge_N_110-oui,P0008_charge_N_110-non"
+  P0008_charge_N_120:
+    text: "Quel vaillant guerrier nous avons là ! On nous a signalé une présence inquié\
+      tante vers les &3ruines à l'est&f, mes dernières informations m’indique qu’\
+      ils sont 3, je te note les coordonnées. Bonne chance !"
+    events: "tag_P0008_charge_N_120,objective_charge_N-1,folder_return-K,folder_message_N_120"
+  P0008_charge_N_130:
+    text: "C'est bon ? Tu as réglé le compte de ces vilains ours ?"
+    conditions: "tag_P0008_charge_N_120,!tag_P0008_charge_N_140,!tag_P0008_charge_N_145,!Chapitre_00-P0001.tag_chap_00-fin"
+    pointers: "P0008_charge_N_130-oui,P0008_charge_N_130-non,P0008_charge_N_130-rate"
+  P0008_charge_N_140:
+    text: "Parfait ! Le Järl va être content de moi. Voilà des tickets gratuits pour\
+      \ te remercier ! A un de ces jours !"
+    events: "give_ticket_bleu-5,tag_P0008_charge_N_140,reset_N"
+  P0008_charge_N_145:
+    text: "Je vois, tant pis alors, j'engagerai quelqu'un d'autre pour les retrouver.\
+      \ A la prochaine."
+    events: "tag_P0008_charge_N_145"
+  P0008_charge_N_150:
+    text: "Salutations aventurier. En quoi puis-je vous aider ?"
+    conditions: "tag_unlock"
+    pointers: "P0008_charge_N_150-carnet,P0008_charge_N_150-transport,P0008_charge_N_150-passeport"
+  P0008_charge_N_150-transport:
+    text: "Il suffit de se rendre au port et de trouver Malkor, c'est lui le capitaine\
+      \ du bateau."
+  P0008_charge_N_150-carnet:
+    text: "Pas de problème, voilà vos $nbr_carnet$ tickets pour $prix_carnet$. Bon\
+      \ voyage !"
+    events: "give_carnet_bleu,money-prix_carnet"
+    conditions: "item_carnetGUI,money_prix_carnet"
+  P0008_charge_N_150-passeport:
+    text: "Encore quelqu'un qui ne fait pas attention à ses affaires. Aller tient\
+      \ et cette fois-ci ne le perd pas ! "
+    events: "give_carnetGUI"
+    conditions: "!item_carnetGUI"
+player_options:
+  P0008_charge_N_10:
+    text: "Hum... Bonjour ?"
+    pointers: "P0008_charge_N_20"
+  P0008_charge_N_20:
+    text: "Hein ? L'ASN ? Moi je viens juste pour obtenir votre accréditation !"
+    pointers: "P0008_charge_N_30"
+  P0008_charge_N_30:
+    text: "Oui, c'est exactement ce dont j'ai besoin !"
+    pointers: "P0008_charge_N_40"
+  P0008_charge_N_40:
+    text: "Hein ? Hum... S'il vous plaît ?"
+    pointers: "P0008_charge_N_50"
+  P0008_charge_N_50:
+    text: "Les habitants de Minätar sont vraiment méfiants envers les étrangers ?"
+    pointers: "P0008_charge_N_60"
+  P0008_charge_N_60-1:
+    text: "Les autres villes sont dans le même cas ?"
+    pointers: "P0008_charge_N_70"
+  P0008_charge_N_60-2:
+    text: "Et mon accréditation ?"
+    pointers: "P0008_charge_N_80"
+  P0008_charge_N_80:
+    text: "Je vous remercie alors ! Dans ce cas je vais y aller..."
+    pointers: "P0008_charge_N_90"
+  P0008_charge_N_90-oui:
+    text: "Pourquoi pas... En quoi consiste la mission ?"
+    events: "tag_P0008_charge_N-finish,folder_return-K"
+    pointers: "P0008_charge_N_110"
+  P0008_charge_N_90-non:
+    text: "Cela ne m'intéresse pas spécialement et je n'ai pas le temps, au revoir\
+      \ !"
+    pointers: "P0008_charge_N_100"
+  P0008_charge_N_110-oui:
+    text: "Très bien, ce ne sont pas quelques ours qui vont me faire peur !"
+    pointers: "P0008_charge_N_120"
+  P0008_charge_N_110-non:
+    text: "Je n'aime pas la violence envers les bête, à un de ces jours !"
+    pointers: "P0008_charge_N_100"
+  P0008_charge_N_130-oui:
+    text: "La zone est nettoyée, ils n'embêteront plus personne !"
+    conditions: "tag_P0008_objective_N-finish"
+    pointers: "P0008_charge_N_140"
+  P0008_charge_N_130-rate:
+    text: "Non j'ai pas pas pu, les ours se sont échappés..."
+    conditions: "tag_P0008_objective_N-rate"
+    pointers: "P0008_charge_N_145"
+  P0008_charge_N_130-non:
+    text: "Non je n'ai pas été vers les ruines. Je vais y aller."
+    events: "message_charge_J"
+    conditions: "!tag_P0008_objective_N-finish,!tag_P0008_objective_N-rate"
+  P0008_charge_N_150-carnet:
+    text: "Un lot de 10 tickets pour utiliser le bateau s'il vous plaît !"
+    conditions: "item_carnetGUI,money_prix_carnet"
+    pointers: "P0008_charge_N_150-carnet"
+  P0008_charge_N_150-transport:
+    text: "Où se trouve le transport ?"
+    pointers: "P0008_charge_N_150-transport"
+  P0008_charge_N_150-passeport:
+    text: "J'ai perdus mon passeport"
+    conditions: "!item_carnetGUI"
+    pointers: "P0008_charge_N_150-passeport"

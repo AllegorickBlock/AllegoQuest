@@ -1,0 +1,82 @@
+---
+quester: "Bûcheron"
+stop: "false"
+first: "S0011_bucheron_01,S0011_bucheron_03,S0011_bucheron_05,S0011_bucheron_06"
+NPC_options:
+  S0011_bucheron_01:
+    text: "Aïe aïe aïe... Ce n'est pas facile de recruter ces temps-ci ! Plus personne\
+      \ ne sait manier la hache dans les règles de l'art... Les gens ne respectent\
+      \ plus la nature !"
+    conditions: "!tag_S0011-fin,!tag_S0011_bucheron_02,tag_P0001-fin"
+    pointers: "S0011_bucheron_01-oui,S0011_bucheron_01-non"
+  S0011_bucheron_03:
+    text: "♪♪ Ohhhh, &aj'aime le chêne&f, c'est rare y en n'a pas beaucoup... Oh le\
+      \ chêne ! ♪ Alors mon gaillard, t'as bien bûché ? Qu'apportes-tu de beau ?"
+    conditions: "tag_S0011_bucheron_02,!tag_S0011-cooldown"
+    pointers: "S0011_bucheron_03-A,S0011_bucheron_03-B,S0011_bucheron_03-C,S0011_bucheron_03-D"
+  S0011_bucheron_05:
+    text: "Merci pour le bois de l'autre fois ! Mais ne coupe pas trop d'arbres non\
+      \ plus, c'est dangereux pour la nature ! Repasse plus tard !"
+    conditions: "tag_S0011-fin,tag_S0011-cooldown"
+  S0011_bucheron_06:
+    text: "Content de te revoir, %player% ! J'ai besoin de bois, mais mes ouvriers\
+      \ ne sont pas encore assez doués... J'ai confiance en toi pour respecter la\
+      \ nature !"
+    conditions: "!tag_S0011-cooldown,!tag_S0011_bucheron_02,tag_S0011-fin"
+    pointers: "S0011_bucheron_06-oui,S0011_bucheron_06-non"
+  S0011_bucheron_02:
+    text: "Curieux de voir ça ! Ramène-moi au moins &e32 bûches d'acajou&f. Et si\
+      \ tu m'en rapportes le double, je serais épaté !"
+    events: "journal_S0011_bucheron_02,tag_S0011_bucheron_02,folder_S0011_message_obj,tag_S0011_inprogress"
+  S0011_bucheron_04-A:
+    text: "Pas mal pour un débutant ! A sa coupe, je peux voir qu'il a été coupé avec\
+      \ soin..."
+    events: "take_S0011_bois-32,reward_S0011_money_32,deltag_S0011_bucheron_02,deltag_S0011_inprogress,journal_S0011_bucheron-fin,journal_del_S0011_bucheron_02,journal_del_S0011_bucheron_06,obj_S0011_cooldown,point_S0011_complete,folder_S0011_message_recompense_32,tag_S0011-fin,tag_S0011-cooldown"
+    conditions: "item_S0011_bois-32"
+  S0011_bucheron_04-B:
+    text: "Whaou, je suis épaté ! Je ne m'attendais pas à une telle quantité de bois\
+      \ aussi bien taillée..."
+    events: "take_S0011_bois-64,deltag_S0011_bucheron_02,journal_S0011_bucheron-fin,reward_S0011_money_64,obj_S0011_cooldown,journal_del_S0011_bucheron_02,journal_del_S0011_bucheron_06,deltag_S0011_inprogress,folder_S0011_message_recompense_64,tag_S0011-fin,tag_S0011-cooldown"
+    conditions: "item_S0011_bois-64"
+  S0011_bucheron_04-C:
+    text: "Oh ! Comment as-tu su ? Le chêne est si rare par ici ! Et il est si parfaitement\
+      \ taillé ! Tu m'as bluffé, prends ça !"
+    events: "deltag_S0011_bucheron_02,journal_del_S0011_bucheron_02,journal_del_S0011_bucheron_06,take_S0011_bois-special,reward_S0011_money_special,obj_S0011_cooldown,deltag_S0011_inprogress,folder_S0011_message_recompense_special,tag_S0011-fin,tag_S0011-cooldown,tag_S0011-finC"
+    conditions: "item_S0011_bois-special"
+  S0011_bucheron_04-D:
+    text: "C'est pourtant pas les arbres qui manquent dans une jungle ! On se reposera\
+      \ quand on passera la hache à gauche !"
+    events: "folder_S0011_message_obj"
+  S0011_bucheron_07:
+    text: "Il me faut au moins 32 bûches d'acajou... le double si possible ! Mais\
+      \ privilégie la qualité : la nature, ça se respecte..."
+    events: "tag_S0011_bucheron_02,tag_S0011_inprogress,deltag_S0011-repeat,folder_S0011_message_obj,journal_S0011_bucheron_07,journal_del_S0011-fin"
+player_options:
+  S0011_bucheron_01-oui:
+    text: "Je ne suis pas comme les autres, je vais te montrer de quel bois je me\
+      \ chauffe !"
+    pointers: "S0011_bucheron_02"
+  S0011_bucheron_01-non:
+    text: "C'pas facile mon pauvre vieux !"
+  S0011_bucheron_03-A:
+    text: "Exactement ce que j'ai annoncé, &e32 bûches d'acajou &b!"
+    conditions: "item_S0011_bois-32"
+    pointers: "S0011_bucheron_04-A"
+  S0011_bucheron_03-B:
+    text: "J'ai trouvé un arbre un peu plus gros que les autres, alors j'ai ramené\
+      \ &e64 bûches &b!"
+    conditions: "item_S0011_bois-64"
+    pointers: "S0011_bucheron_04-B"
+  S0011_bucheron_03-C:
+    text: "J'ai une petite surprise pour toi !"
+    conditions: "item_S0011_bois-special,!tag_S0011-finD"
+    pointers: "S0011_bucheron_04-C"
+  S0011_bucheron_03-D:
+    text: "J'ai tout juste eu le temps de réparer ma hache..."
+    pointers: "S0011_bucheron_04-D"
+  S0011_bucheron_06-oui:
+    text: "Je me mets au travail sur le champ !"
+    pointers: "S0011_bucheron_07"
+  S0011_bucheron_06-non:
+    text: "J'ai cassé ma hache l'autre fois, je reviendrai quand j'en aurai acheté\
+      \ une nouvelle !"

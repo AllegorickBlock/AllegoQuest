@@ -1,0 +1,20 @@
+---
+quester: "Receptionniste"
+stop: "false"
+first: "P0009_24"
+NPC_options:
+  P0009_24:
+    text: "Bienvenue au Grand Hôtel de Kokiri ! Nous proposons des chambres adapté\
+      es à vos voyages personnels ou d'affaires ! Que puis-je pour vous ?"
+    conditions: "!tag_P0009_25,tag_P0009_03,!Chapitre_00-P0001.tag_chap_00-fin"
+    pointers: "P0009_24"
+  P0009_25:
+    text: "Génial, je vais pouvoir me changer les idées ! Pourriez-vous remercier\
+      \ &bM. le Maire &fpour moi... ? A bientôt dans notre établissement !\n"
+    events: "tag_P0009_25,point_invitation,take_invitation,folder_message,tag_delete_indice"
+    conditions: "item_invitation"
+player_options:
+  P0009_24:
+    text: "J'ai une invitation de la part de M. le Maire pour vous..."
+    conditions: "item_invitation"
+    pointers: "P0009_25"

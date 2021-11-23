@@ -1,0 +1,10 @@
+---
+npcs:
+  219: "pepe5"
+  218: "pepe4"
+  217: "pepe3"
+  216: "pepe2"
+  215: "pepe1"
+  412: "garde"
+variables:
+  pseudo: "%player.display%"

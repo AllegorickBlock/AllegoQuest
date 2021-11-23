@@ -1,0 +1,60 @@
+---
+quester: "Pêcheur"
+stop: "false"
+first: "pecheur_poule,P0003_010,P0003_040,P0003_050"
+NPC_options:
+  pecheur_poule:
+    text: "Qui qu't'es toi ? Si t'es paumé, y a bi'n l'&3Maître Poule &fqui pourrait\
+      \ p'tete t'aider ! Là-bas, sur l'Grand-Place !"
+    conditions: "!Chapitre_00-P0001.tag_P0001-fin,!Chapitre_00-P0001.tag_chap_00-fin"
+  P0003_010:
+    text: "Bi'n l'bonjour mon p'tit ! Ca n'mord pas b'coup auj'd'hui..."
+    conditions: "!tag_P0003_020,Chapitre_00-P0002.tag_P0002-fin,!tag_P0003-fin-pecheur,!tag_P0003_050,!Chapitre_00-P0001.tag_chap_00-fin"
+    pointers: "P0003_010-1,P0003_010-2"
+  P0003_040:
+    text: "Hé beh, c'pas comme ça qu'tu vas m'ram'ner la demi-douzaine de poiscailles\
+      \ !"
+    conditions: "tag_P0003_020,or_peche,!Chapitre_00-P0001.tag_chap_00-fin,!tag_P0003-fin-aubergiste,!tag_P0003-fin-pecheur,!tag_P0003_050"
+  P0003_050:
+    text: "J'te rem'cie mon p'tit ! Mais d'puis qu't'es parti, le vent s'est l'vé\
+      \ et ça mord ! Alors v'là qu'&et'as l'choix&f, t'peux m'donner le poisson ou\
+      \ bi'n l'&bapporter direct'ment au Tavernier&f pour sa p'tite fête, ça m'ferait\
+      \ gagner l'temps !\\n&b&l(!) &r&3Parfois, tu peux choisir comment se déroule\
+      \ l'histoire... Cela influencera les évènements et ta récompense ! "
+    conditions: "tag_P0003_020-reussite,item_poisson,!tag_P0003_050,!tag_P0003-fin-pecheur,!Chapitre_00-P0001.tag_chap_00-fin"
+    pointers: "P0003_050-pecheur,P0003_050-aubergiste"
+  P0003_020:
+    text: "Pour sûr, j'suis pas cont' un p'tit coup d'main ! T'pourrais m'pêcher &2une\
+      \ demi-douzaine &f?"
+    pointers: "P0003_020-1,P0003_020-2"
+  P0003_030:
+    text: "Oh n't'embête pas, prends donc l'mienne ! J'vais m'chercher une aut'..."
+    events: "give_canne_cassee,tag_P0003_020,journal_P0003_020,objective_P0003_020"
+  P0003_060-pecheur:
+    text: "C'tait l'arrang'ment, j'vais t'les prend'e ! V'là ta récompense ! Reviens m'voir à l'occasion ! Tiens, tant qu't'y es... acVa don' voir l'Tavernier&f, il au'ait p't-êt' b'in b'soin d'aide pour son banquet..."
+    events: "take_poisson,tag_P0003-fin-pecheur,reward_P0003,folder_reset,folder_after-pecheur,Chapitre_00-P0001.point_chap00,objective_conversation_P0004"
+    conditions: "item_poisson"
+  P0003_060-aubergiste:
+    text: "Me'ci mon p'tit ! Tant qu't'y es... Il au'a &cbien b'soin d'aide pour préparer son banquet&f, c'ui-là ! En passant, t'peux lui d'mander !"
+player_options:
+  P0003_010-1:
+    text: "Le temps n'est pas assez humide, ça ne doit pas être facile !"
+    pointers: "P0003_020"
+  P0003_010-2:
+    text: "As-tu besoin d'un coup de main, pour la pêche du jour ?"
+    pointers: "P0003_020"
+  P0003_050-pecheur:
+    text: "Je préfère te donner la demi-douzaine de poissons, comme convenu !"
+    conditions: "item_poisson"
+    pointers: "P0003_060-pecheur"
+  P0003_050-aubergiste:
+    text: "Je vais directement apporter le poisson au Tavernier dans ce cas... A bientô\
+      t !"
+    events: "tag_P0003_050,journal_P0003-aubergiste,folder_reset"
+    conditions: "item_poisson"
+    pointers: "P0003_060-aubergiste"
+  P0003_020-1:
+    text: "Je vais me fabriquer une canne à pêche et je m'en occupe !"
+    pointers: "P0003_030"
+  P0003_020-2:
+    text: "J'aurais aimé aider, mais je dois aller voir le Responsable des transports..."

@@ -1,0 +1,16 @@
+---
+quester: "Pépé Rimé"
+stop: "false"
+first: "T0001_pepe_12,T0001_pepe_13"
+NPC_options:
+  T0001_pepe_12:
+    text: "Je suis ému, on ne se verra plus ! Tu as sûrement d'autres questions...\
+      \ Juste pour toi, il y a des &bguides &fet plein d'&bastuces &fsur &eland-of-craft.fr\
+      \ &f! Les joueurs et notre équipe seront aussi heureux d'y répondre :)\n"
+    events: "conversation_T0001_pepe5,tag_T0001_pepe_12,folder_conversation_T0001_pepe5,objective_block_pepe5"
+    conditions: "tag_T0001_garde_02,!tag_T0001_pepe_12"
+  T0001_pepe_13:
+    text: "Il ne te reste plus qu'à passer cet ultime portail pour enfin te lancer\
+      \ dans une nouvelle aventure... Bonne chance, &7Troubadour &f!"
+    events: "tag_T0001-fin,objective_tp_eldorado"
+    conditions: "tag_T0001_pepe_12,!tag_T0001-fin"

@@ -1,0 +1,51 @@
+---
+quester: "Pépé Rimé"
+stop: "true"
+first: "T0001_pepe_03,T0001_pepe_03-2,T0001_pepe_03-3,T0001_pepe_04,T0001_pepe_05,T0001_pepe_06"
+NPC_options:
+  T0001_pepe_03:
+    text: "Nous y voilà... &eLes grades &fte font &bgagner en compétences&f. Au fil\
+      \ de ton évolution, tu vas débloquer des recettes, accéder à de nouveaux mondes\
+      \ et bénéficier de &afonctionnalités exclusives &f! Pour chaque grade, il y\
+      \ a des &cchallenges à accomplir &fet des &cressources à amasser&f.\n\n&b&l(!)\
+      \ &3Pour pouvoir sélectionner des réponses de dialogue il faut écrire le numé\
+      ro de la réponse dans le chat ou cliquer sur la réponse"
+    conditions: "tag_T0001_pepe_02,!tag_T0001_pepe_06,!point_conversation_pepe_03_1"
+    pointers: "T0001_pepe_03"
+  T0001_pepe_03-2:
+    text: "Après le Tuto, tu seras un jeune &7Troubadour&f ! Tu pourras miner, construire,\
+      \ mener des &equêtes&f, acheter et vendre... En gros: découvrir le serveur &dP-E-I-N-A-R-D\
+      \ &f!\\n&b&l(!) &3Appuie sur le bouton derrière Pépé pour continuer..."
+    events: "objective_action_button_1"
+    conditions: "point_conversation_pepe_03_1,!point_conversation_pepe_03_2,!tag_T0001_pepe_06"
+  T0001_pepe_03-3:
+    text: "Le second grade est le &2Paysan &f! Il te permet de &egérer ton argent&f,\
+      \ d'améliorer tes protections et de &arejoindre une ville &fexistante ! Génial,\
+      \ non ?! Inscris-toi dès maintenant sur le forum pour en profiter !\\n&b&l(!)\
+      \ &3Appuie sur le bouton pour continuer..."
+    conditions: "point_conversation_pepe_03_2,!point_conversation_pepe_03_3,!tag_T0001_pepe_06"
+  T0001_pepe_04:
+    text: "Le grade &2Aventurier &fest pour les joueurs aguerris ! Il permet d'accé\
+      der au &cNether&f, d'obtenir plus de protections, d'ouvrir un coffre à la Banque\
+      \ de Kokiri et surtout de &bgérer une ville&f existante.\\n&b&l(!) &3Appuie\
+      \ sur le bouton pour continuer."
+    conditions: "point_conversation_pepe_03_3,!point_conversation_pepe_03_4,!tag_T0001_pepe_06"
+  T0001_pepe_05:
+    text: "Le &3Citoyen &fest très expérimenté ! Ce grade débloque l'accès à l'&eEnd\
+      \ &fet aux &erecettes &fqui y sont liées (Perle d'Ender, Alambic, Briques de\
+      \ l'End...). Il permet aussi d'avoir des &cprotections supplémentaires&f.\\\
+      n&b&l(!) &3Appuie sur le bouton pour continuer."
+    conditions: "point_conversation_pepe_03_4,!point_conversation_pepe_03_5,!tag_T0001_pepe_06"
+  T0001_pepe_06:
+    text: "Le &3Noble &fest le dernier grade commun à tous. Il est &etrès respecté\
+      \ et convoité &fpour ses grandes compétences ! Il permet de &3créer une ville&f,\
+      \ bénéficier du maximum de protections et surtout de choisir sa &espécialité\
+      \ &f(&6Artificier&f, &aChasseur&f, &5Magicien &fou &bMarchand&f)...\\n&b&l(!)\
+      \ &3Voilà pour les grades, tu peux avancer...  :)"
+    events: "objective_tp_zone_2,objective_bonus_taverne,tag_T0001_pepe_06"
+    conditions: "point_conversation_pepe_03_5,!point_conversation_pepe_03_6,!tag_T0001_pepe_06"
+player_options:
+  T0001_pepe_03:
+    text: "Ah cool ! Quels sont les premiers grades alors ? &d(Appuie ici)"
+    events: "del_tag_T0001_pepe_02,point_grade,point_conversation_pepe_03"
+    pointers: "T0001_pepe_03-2"

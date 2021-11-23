@@ -1,0 +1,24 @@
+---
+tag_P0001-fin: "tag add P0001-fin"
+journal_P0001-fin: "journal add P0001-fin"
+give_journal: "givejournal"
+point_chap00: "point chap00 1"
+folder_retour_poule: "folder message_retour_poule,journal_retour_poule conditions:point_chap00\
+  \ delay:1"
+message_retour_poule: "message &2&l(!) &r&aTu as terminé les quêtes principales de ce Chapitre, retourne voir Maître Poule, il a plein de choses à te dire !"
+journal_retour_poule: "journal add retour_poule"
+tag_chap_00-fin: "tag add Chap_00-fin"
+reward_money_60: "money +60"
+folder_reset_Chap_00: "folder reset_tag,reset_journal"
+reset_tag: "run ^tag delete P0001-fin ^tag delete Chapitre_00-P0009.P0009-fin ^tag\
+  \ delete Chapitre_00-P0002.P0002-fin ^tag delete Chapitre_00-P0003.P0003-fin-aubergiste\
+  \ ^tag delete Chapitre_00-P0003.P0003-fin-pecheur ^tag delete Chapitre_00-P0004.P0004-fin\
+  \ ^tag delete Chapitre_00-P0007.P0007-fin ^tag delete Chapitre_00-P0005.P0005_ashford-fin\
+  \ ^tag delete Chapitre_00-P0007_030_non"
+reset_journal: "run ^journal delete P0001-fin ^journal delete Chapitre_00-P0009.message_1\
+  \ ^journal delete Chapitre_00-P0009.P0009-fin ^journal delete Chapitre_00-P0002.P0002-fin\
+  \ ^journal delete Chapitre_00-P0003.P0003-aubergiste ^journal delete Chapitre_00-P0003.P0003-fin-aubergiste\
+  \ ^journal delete Chapitre_00-P0003.P0003-pecheur ^journal delete Chapitre_00-P0004.P0004_020\
+  \ ^journal delete Chapitre_00-P0004.P0004_050 ^journal delete Chapitre_00-P0004.P0004_060\
+  \ ^journal delete Chapitre_00-P0004.P0004-fin ^journal delete Chapitre_00-P0007.P0007-fin\
+  \ ^journal delete Chapitre_00-P0005.P0005_070 ^journal delete retour_poule"

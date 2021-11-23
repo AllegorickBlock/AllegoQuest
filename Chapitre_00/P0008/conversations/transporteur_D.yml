@@ -1,0 +1,42 @@
+---
+quester: "Kaliss"
+stop: "false"
+first: "P0008_trans_D_00-1,P0008_trans_D_00-2,P0008_trans_D_00-3,P0008_trans_D_10"
+NPC_options:
+  P0008_trans_D_00-1:
+    text: "Je suis désolé mais &cnos transports sont en maintenance actuellement&f,\
+      \ je ne peux vous faire voyager! A la prochaine !"
+    conditions: "!Chapitre_00-P0009.tag_P0009-fin,!tag_P0008_charge_debut,!Chapitre_00-P0001.tag_chap_00-fin"
+  P0008_trans_D_00-2:
+    text: "Si vous voulez voyager avec mes lamas, il va d'abord falloir vous renseigner\
+      \ auprès du &cResponsable des transports &f! Son bureau est à la &6Mairie&f."
+    conditions: "Chapitre_00-P0009.tag_P0009-fin,!tag_P0008_charge_debut,!Chapitre_00-P0001.tag_chap_00-fin"
+  P0008_trans_D_00-3:
+    text: "Salutations ! *Regarde passeport* Vous n'avez pas encore été à &eNycène\
+      \ &fvalider votre accréditation ! Allez-y d'abord et parlez à &cPërip Eyssi\
+      \ &6pour pouvoir voyager."
+    conditions: "tag_P0008_charge_debut,!tag_unlock,!tag_P0008_charge_D-finish,!Chapitre_00-P0001.tag_chap_00-fin"
+  P0008_trans_D_10:
+    text: "Salut mon gars ! Pour voyager à dos de lama, c'est un ticket ou $prix_voyage$\
+      \ cubix !"
+    pointers: "P0008_trans_D_10-ticket,P0008_trans_D_10-universel,P0008_trans_D_10-money,P0008_trans_D_10-non"
+  P0008_trans_D_10-money:
+    text: "Te voilà arrivé à destination, %player% ! Le voyage t'a coûté $prix_voyage$\
+      \ Cubix."
+    events: "money-prix_voyage,tp_desert-kokiri"
+    conditions: "money_prix_voyage"
+player_options:
+  P0008_trans_D_10-ticket:
+    text: "Oui ! Voilà un ticket !"
+    events: "tp_desert-kokiri,take_ticket_jaune-1"
+    conditions: "point_carnet_jaune-1,!point_ticket_universel-1"
+  P0008_trans_D_10-universel:
+    text: "J'ai un ticket universel, j'aimerais l'utiliser."
+    events: "tp_desert-kokiri,take_ticket_universel"
+    conditions: "point_ticket_universel-1"
+  P0008_trans_D_10-money:
+    text: "Je paie en cubix !"
+    conditions: "money_prix_voyage"
+    pointers: "P0008_trans_D_10-money"
+  P0008_trans_D_10-non:
+    text: "Finalement je vais rester ici encore un peu."

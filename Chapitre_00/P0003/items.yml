@@ -1,0 +1,7 @@
+---
+poisson: "RAW_FISH"
+emeraude: "EMERALD"
+canne_peche_enchant: "FISHING_ROD enchants:lure:2"
+canne_peche_casse: "FISHING_ROD data:22 name:&3La_Canne_du_Pêcheur"
+tarte_citrouille: "PUMPKIN_PIE"
+poisson_cuit: "COOKED_FISH"

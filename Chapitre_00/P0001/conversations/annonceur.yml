@@ -1,0 +1,92 @@
+---
+quester: "Maître poule"
+stop: "false"
+first: "P0001_010,P0001_080"
+NPC_options:
+  P0001_010:
+    text: "Bonjour %player%, enfin je te rencontre ! Je savais que tu finirais par\
+      \ venir jusqu'à moi... Bienvenue à la capitale ! \n&b&l(!)&3 Pour répondre,\
+      \ clique sur l'option de ton choix."
+    conditions: "Tuto-T0001.tag_T0001-fin,!tag_chap_00-fin,!tag_P0001-fin"
+    pointers: "P0001_010-1,P0001_010-2"
+  P0001_080:
+    text: "Ah, %player% ! Ca me fait plaisir de te voir ! Je peux faire quelque chose\
+      \ pour toi mon p'tit ?"
+    conditions: "tag_P0001-fin,!tag_chap_00-fin"
+    pointers: "P0001_080-oui,P0001_080-non"
+  P0001_020:
+    text: "Surprenant non ? Figure-toi que je suis bien plus qu'une poule, mon rô\
+      le est de &eguider &fles &enouveaux arrivants &f! L'&2Eldorado &fest un monde\
+      \ fantastique, il regorge de milles et une merveilles...\n&b&l(!) &3La réponse\
+      \ “...” permet de poursuivre un long dialogue."
+    pointers: "P0001_020"
+  P0001_030:
+    text: "En voyageant aux &2trois coins du monde&f, tu rencontreras des gens ayant\
+      \ besoin de ton aide ! Accomplis &cquêtes &fet missions pour obtenir des &cré\
+      compenses &futiles !"
+    pointers: "P0001_030-1,P0001_030-2"
+  P0001_040:
+    text: "L'&cambition &fest importante, mais n'oublie pas avant tout d'être &3juste\
+      \ et bon ! &fBien des aventuriers ont sombré avant toi ! Alors fais attention\
+      \ mon p'tit !"
+    pointers: "P0001_050"
+  P0001_060:
+    text: "Tu vas pouvoir rendre service aux &bhabitants de Kokiri &f! Je crois que\
+      \ &eM. Le Maire &fa &equelque chose &fà te confier..."
+    pointers: "P0001_060"
+  P0001_070:
+    text: "&lAH OUI !&f J'ai failli oublier ! Si tu ne sais pas qui aider ou &asi\
+      \ tu es perdu&f, &areviens me voir&f... Bon' chance !"
+    events: "tag_P0001-fin,journal_P0001-fin,give_journal"
+  P0001_090:
+    text: "C'est fantastique alors ! Et crois-moi tu en as encore à voir ! Je pense\
+      \ que tu es fin prêt à &ccommencer ton aventure &fdésormais."
+    pointers: "P0001_090"
+  P0001_100:
+    text: "Ne t'en fais pas, dès que le besoin se fera ressentir je serai &ctoujours\
+      \ là pour t'aider ! &fTu as tout pour devenir un &5grand aventurier ! &f Aie\
+      \ confiance !"
+    pointers: "P0001_100"
+  P0001_110:
+    text: "Je contemplerai de loin &6tes exploits &fmon p'tit ! Que les dieux guident\
+      \ ton chemin !"
+    events: "reward_money_60,tag_P0001-fin,tag_chap_00-fin,folder_reset_Chap_00"
+player_options:
+  P0001_010-1:
+    text: "Je n'y crois pas, vous êtes vraiment une poule ?! Et vous parlez ?! Et\
+      \ comment connaissez-vous mon nom d'abord ?! "
+    pointers: "P0001_020"
+  P0001_010-2:
+    text: "Oh mon dieu une poule qui parle !! C'est dangereux ? Est-ce que je dois\
+      \ m'inquiéter ??"
+    pointers: "P0001_020"
+  P0001_080-oui:
+    text: "Oui ! Cela n'a pas été une mince affaire, mais j'ai aidé des habitants\
+      \ et découvert de nouvelles villes !"
+    conditions: "point_chap00"
+    pointers: "P0001_090"
+  P0001_080-non:
+    text: "Il me semble que j'ai encore quelques tâches à effectuer, je reviendrai\
+      \ !"
+    conditions: "!point_chap00"
+  P0001_020:
+    text: "..."
+    pointers: "P0001_030"
+  P0001_030-1:
+    text: "Ohhhh, super ! Quand est-ce que je commence ?"
+    pointers: "P0001_060"
+  P0001_030-2:
+    text: "Mais c'est génial !! A moi la fortune et la gloire !"
+    pointers: "P0001_040"
+  P0001_050:
+    text: "Entendu, Maître Poule..."
+    pointers: "P0001_060"
+  P0001_060:
+    text: "Je m'y rend de ce pas !"
+    pointers: "P0001_070"
+  P0001_090:
+    text: "Déjà ? Mais j'ai encore à apprendre de vous !"
+    pointers: "P0001_100"
+  P0001_100:
+    text: "Bien Maître je vous crois. Merci infiniment et à bientôt !"
+    pointers: "P0001_110"

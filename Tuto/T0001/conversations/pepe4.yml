@@ -1,0 +1,35 @@
+---
+quester: "Pépé Rimé"
+stop: "true"
+first: "T0001_pepe_10,T0001_pepe_11"
+NPC_options:
+  T0001_pepe_10:
+    text: "L'argent, c'est le nerf de la guerre ! Ici, la monnaie est le &eCubix&f.\
+      \ Il y a différents moyens d'en obtenir:\\n» &aCommmercer &favec d'autres joueurs&f\
+      \ ;\\n» Mener à bien des &eQuêtes &fen aidant les habitants ;\\n» Participer\
+      \ à des &dévènements &forganisés par notre équipe ;\\n» Tuer des monstres ou\
+      \ &bminer&f, pour quelques Cubix ;\\n» En acheter dans &enotre boutique sur\
+      \ le site &f!\n\n"
+    conditions: "tag_T0001_pepe_09,!tag_T0001_pepe_10-2"
+    pointers: "T0001_pepe_10"
+  T0001_pepe_10-2:
+    text: "&bLe commerce &fest un élément essentiel ! Chaque grade détient le &2secret\
+      \ de certaines recettes&f: pour en profiter, il faut atteindre le grade ou les\
+      \ &béchanger/acheter &fauprès d'autres joueurs !"
+    conditions: "!tag_T0001_pepe_10-2"
+    pointers: "T0001_pepe_10-2"
+  T0001_pepe_11:
+    text: "Tu peux acheter et vendre de main à main, ou te rendre dans les &eboutiques\
+      \ &ftenues par des &bMarchands &fdans les principales villes... Essaye ! Tu\
+      \ vas &avendre &fton &aémeraude&f, puis &cacheter &fune &cpomme dorée&f... Le\
+      \ garde en raffole !"
+    events: "tag_T0001_pepe_11,objective_golden_apple"
+    conditions: "tag_T0001_pepe_10-2"
+player_options:
+  T0001_pepe_10:
+    text: "C'est quoi exactement le commerce ?"
+    pointers: "T0001_pepe_10-2"
+  T0001_pepe_10-2:
+    text: "Oh super ! Comme est-ce que je peux acheter et vendre ?"
+    events: "tag_T0001_pepe_10-2"
+    pointers: "T0001_pepe_11"

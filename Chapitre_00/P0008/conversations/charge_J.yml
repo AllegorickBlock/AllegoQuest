@@ -1,0 +1,210 @@
+---
+quester: "Canopé Riple"
+stop: "false"
+first: "P0008_charge_J_00-1,P0008_charge_J_00-2,P0008_charge_J_10,P0008_charge_J_180,P0008_charge_J_200,P0008_charge_J_160"
+NPC_options:
+  P0008_charge_J_00-1:
+    text: "Salutations ! Si vous venez pour voyager jusqu'à Kokiri en dirigeable,\
+      \ sachez qu'il va vous falloir une autorisation ! Pour cela, allez voir le &cResponsable\
+      \ des Transports&f à la &6Mairie de Kokiri&f."
+    conditions: "!tag_P0008_charge_J-finish,!tag_unlock,!Chapitre_00-P0009.tag_P0009-fin,!Chapitre_00-P0001.tag_chap_00-fin"
+  P0008_charge_J_00-2:
+    text: "Vous venez pour utiliser le dirigeable ? Désolé mais &cnos services sont\
+      \ en maintenance pour le moment &f! &6Revenez me voir un autre jour &f!"
+    conditions: "Chapitre_00-P0009.tag_P0009-fin,!tag_unlock,!tag_P0008_charge_J-finish,!tag_P0008_charge_debut,!Chapitre_00-P0001.tag_chap_00-fin"
+  P0008_charge_J_10:
+    text: "Bonjour ! Je peux faire quelque chose pour vous ?"
+    conditions: "Chapitre_00-P0009.tag_P0009-fin,!tag_unlock,!tag_P0008_charge_J-finish"
+    pointers: "P0008_charge_J_10"
+  P0008_charge_J_20:
+    text: "Ah oui bien sûr c'est faisable ! Faisable, mais je vais d'abord devoir\
+      \ m'assurer que vous êtes \"clean\" comme on dit."
+    pointers: "P0008_charge_J_20-1,P0008_charge_J_20-2"
+  P0008_charge_J_30:
+    text: "Hum.. Non. Un poulpe en décomposition à la limite. Je blague ! Quoi que..."
+    pointers: "P0008_charge_J_30"
+  P0008_charge_J_40:
+    text: "Monsieur, c'est la procédure et ici on la respecte. Nous suspectons des\
+      \ étrangers de voler des quantités indécentes de plantes de la jungle..."
+    pointers: "P0008_charge_J_40"
+  P0008_charge_J_50:
+    text: "C'est pourquoi on me demande de faire des vérifications approfondies !\
+      \ Allez trève de bavardage !  *Prend son temps pour inspecter votre matériel\
+      \ des yeux*"
+    pointers: "P0008_charge_J_50"
+  P0008_charge_J_60:
+    text: "Mhhh... Vous êtes un gentil aventurier vous, sans aucun doute ! Bien, j'ai\
+      \ des questions maintenant..."
+    pointers: "P0008_charge_J_60-1,P0008_charge_J_60-2"
+  P0008_charge_J_70:
+    text: "Bon très bien, ça ne sera pas long ! Répondez avec honnêteté et franchise\
+      \ à chaque question ! Êtes-vous membre de l'Ordre des Magiciens ou des Artificiers\
+      \ ?"
+    pointers: "P0008_charge_J_70-1,P0008_charge_J_70-2"
+  P0008_charge_J_80:
+    text: "Je note, je note... Avez-vous déjà eu des ennuis quelconques avec la Milice\
+      \ de Kokiri ou d'une autre ville ?"
+    pointers: "P0008_charge_J_80-1,P0008_charge_J_80-2"
+  P0008_charge_J_90:
+    text: "Mhhh. Avez-vous déjà commis un crime sur le territoire de l'Eldorado, ou\
+      \ ailleurs, tel que le meurtre ?"
+    pointers: "P0008_charge_J_90-1,P0008_charge_J_90-2"
+  P0008_charge_J_100:
+    text: "Aimez-vous les petites boules de poils toutes mignonnes, telles que les\
+      \ ocelots ?"
+    pointers: "P0008_charge_J_100-2,P0008_charge_J_100-1"
+  P0008_charge_J_110:
+    text: "Aimez-vous Landhof Kraftrouapoinzerö ? Tiens je ne sais pas qui a écrit\
+      \ ça, je me demande bien qui ça peut être..."
+    pointers: "P0008_charge_J_110"
+  P0008_charge_J_120:
+    text: "Absolument ! J'ai toutes les informations nécessaires vous concernant.\
+      \ Vos réponses ne m'ont pas l'air très sérieuses, mais je suis sûr que ça fera\
+      \ marrer les collègues !"
+    pointers: "P0008_charge_J_120"
+  P0008_charge_J_130:
+    text: "Roh allez, faites pas cette tête, on n'a pas beaucoup de visite, les journé\
+      es sont longues ! Allez *écrit* voilà votre accréditation vous l'avez mérité\
+      \ ! Allez voir Albetor pour utiliser le dirigeable !"
+    pointers: "P0008_charge_J_130"
+  P0008_charge_J_140:
+    text: "Oh ! Ne partez pas si vite, vous pourriez &cme rendre un petit service...\
+      \ &fCette fois-ci pas de blague, c'est très sérieux ! &6Vous serez récompensé\
+      \ &f!"
+    pointers: "P0008_charge_J_140-oui,P0008_charge_J_140-non"
+  P0008_charge_J_150:
+    text: "Pas de problème, au revoir !"
+  P0008_charge_J_160:
+    text: "Bonjour aventurier ! En quoi puis-je vous aider ?"
+    conditions: "tag_unlock"
+    pointers: "P0008_charge_J_carnet,P0008_charge_J_transport,P0008_charge_J_passeport"
+  P0008_charge_J_160-transport:
+    text: "Dans la cime des arbres il y a un dirigeable, va parler à Albetor c'est\
+      \ lui le pilote!"
+  P0008_charge_J_160-passeport:
+    text: "Fait attention quand même c'est grâce à ça que tu peux voyager. Voila un\
+      \ nouveau et prends y soin."
+    events: "give_carnetGUI"
+    conditions: "!item_carnetGUI"
+  P0008_charge_J_160-carnet-oui:
+    text: "Oui bien sûr ça sera $prix_carnet$"
+    conditions: "money_prix_carnet"
+  P0008_charge_J_160-carnet-non:
+    text: "Tu n'as pas assez de cubix sur toi, il te faut $prix_carnet$."
+    conditions: "!money_prix_carnet"
+  P0008_charge_J_180:
+    text: "J'ai régulièrement besoin d'un remède que seul l'alchimiste Galimëde peut\
+      \ me concocter. Pour cela je vais avoir besoin &5d'Alliums &f!"
+    conditions: "tag_P0008_charge_J-finish,!tag_unlock,!tag_P0008_charge_J_190,!Chapitre_00-P0001.tag_chap_00-fin"
+    pointers: "P0008_charge_J_180-oui,P0008_charge_J_180-non"
+  P0008_charge_J_190:
+    text: "Elles sont de plus en plus rares par les temps qui courent... Je sais qu'il\
+      \ y en a au fond d'un &cgrand gouffre&f, un peu &6au nord d'ici&f. Je vous conseille\
+      \ de &3longer la rivière &fpour y parvenir !"
+    events: "objective_charge_J-1,tag_P0008_charge_J_190,rappel_J-quest"
+  P0008_charge_J_200:
+    text: "Hey ! Alors tu as pu récupérer la fleur ?"
+    conditions: "tag_P0008_charge_J_190,!tag_P0008_charge_J_210,!Chapitre_00-P0001.tag_chap_00-fin"
+    pointers: "P0008_charge_N_200-oui,P0008_charge_N_200-non"
+  P0008_charge_J_210:
+    text: "Super, merci ! Comme promis &6voilà des tickets&f. Bonne route !"
+    events: "give_ticket_vert+5,tag_P0008_charge_J_210,take_allium"
+    conditions: "item_allium"
+player_options:
+  P0008_charge_J_10:
+    text: "Bonjour, je souhaite obtenir l'accréditation pour voyager entre Irin Lepta\
+      \ et Kokiri !"
+    pointers: "P0008_charge_J_20"
+  P0008_charge_J_20-1:
+    text: "J'ai vraiment l'air d'être un meurtrier en cavale ?"
+    pointers: "P0008_charge_J_30"
+  P0008_charge_J_20-2:
+    text: "C'est vraiment nécessaire ?"
+    pointers: "P0008_charge_J_40"
+  P0008_charge_J_30:
+    text: "..."
+    pointers: "P0008_charge_J_40"
+  P0008_charge_J_40:
+    text: "Des voleurs de plantes ? Cela expliquerait la méfiance..."
+    pointers: "P0008_charge_J_50"
+  P0008_charge_J_50:
+    text: "..."
+    pointers: "P0008_charge_J_60"
+  P0008_charge_J_60-1:
+    text: "C'est pas vrai... Enfin bon, si c'est pour l'accréditation..."
+    pointers: "P0008_charge_J_70"
+  P0008_charge_J_60-2:
+    text: "Quoi ?! Vérifier mon matériel a déjà pris trop de temps ! Je refuse !"
+    pointers: "P0008_charge_J_130"
+  P0008_charge_J_70-1:
+    text: "Oui mais rassurez-vous, je ne compte ni brûler la jungle ni prendre de\
+      \ plante pour en faire des potions !"
+    pointers: "P0008_charge_J_80"
+  P0008_charge_J_70-2:
+    text: "Non, je ne suis membre ni de l'un ni de l'autre... Un jour, peut-être !"
+    pointers: "P0008_charge_J_80"
+  P0008_charge_J_80-1:
+    text: "J'ai peut-être fait un séjour en cellule, une fois ou deux grand maximum..."
+    pointers: "P0008_charge_J_90"
+  P0008_charge_J_80-2:
+    text: "Non, je suis une personne très sage ! En tout cas on ne m'a jamais attrapé\
+      ... "
+    pointers: "P0008_charge_J_90"
+  P0008_charge_J_90-1:
+    text: "Quand quelqu'un passe par hasard dans la trajectoire de mon coup d'épé\
+      e ça compte ?"
+    pointers: "P0008_charge_J_100"
+  P0008_charge_J_90-2:
+    text: "Pas encore, mais je crois que je vais pas tarder à en commettre un..."
+    pointers: "P0008_charge_J_100"
+  P0008_charge_J_100-1:
+    text: "Oui ils sont plutôt mignons..."
+    pointers: "P0008_charge_J_110"
+  P0008_charge_J_100-2:
+    text: "Mais c'est quoi cette question ?! Je les déteste en plus !"
+    pointers: "P0008_charge_J_110"
+  P0008_charge_J_110:
+    text: "Bon c'est bientôt fini ?"
+    pointers: "P0008_charge_J_120"
+  P0008_charge_J_120:
+    text: "Vos collègues ? Je ne comprends pas, c'était une farce ?!"
+    pointers: "P0008_charge_J_130"
+  P0008_charge_J_130:
+    text: "Vous êtes vraiment étrange... Enfin merci pour l'accréditation, et bon\
+      \ courage pour vos prochaines vérifications ! Même si je me demande qui aura\
+      \ besoin de courage..."
+    pointers: "P0008_charge_J_140"
+  P0008_charge_J_140-oui:
+    text: "C'est d'accord ! En quoi cela consiste-t-il ?"
+    events: "tag_P0008_charge_J-finish,journal_charges_J,folder_return-K"
+    pointers: "P0008_charge_J_180"
+  P0008_charge_J_140-non:
+    text: "Désolé je n'ai plus le temps maintenant... A la prochaine !"
+    events: "tag_P0008_charge_J-finish,journal_charges_J,folder_return-K"
+    pointers: "P0008_charge_J_150"
+  P0008_charge_J_carnet:
+    text: "J'aimerais acheter un lot de 10 tickets pour utiliser le dirigeable !"
+    events: "money-prix_carnet,give_carnet_vert"
+    conditions: "item_carnetGUI,!point_max_carnet_vert"
+    pointers: "P0008_charge_J_160-carnet-oui,P0008_charge_J_160-carnet-non"
+  P0008_charge_J_transport:
+    text: "Où se trouve le transport ?"
+    pointers: "P0008_charge_J_160-transport"
+  P0008_charge_J_passeport:
+    text: "J'ai perdus mon carnet, c'est possible d'en avoir un nouveau ?"
+    conditions: "!item_carnetGUI"
+    pointers: "P0008_charge_J_160-passeport"
+  P0008_charge_J_180-oui:
+    text: "Hum... Mais oui ce sont ces fameuses fleurs violettes ! Où puis-je les\
+      \ trouver ?"
+    pointers: "P0008_charge_J_190"
+  P0008_charge_J_180-non:
+    text: "Désolé, mais je n'ai le temps pour aller faire de la cueillette."
+  P0008_charge_N_200-oui:
+    text: "Oui je l'ai, la voici."
+    conditions: "item_allium"
+    pointers: "P0008_charge_J_210"
+  P0008_charge_N_200-non:
+    text: "Non pas encore j’y retourne !"
+    events: "rappel_J-quest"
+    conditions: "!item_allium"

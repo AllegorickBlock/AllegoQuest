@@ -1,0 +1,164 @@
+---
+quester: "Ayce Ventura"
+stop: "false"
+first: "P0008_charge_K_00,P0008_charge_K_10,P0008_charge_K_60,P0008_charge_K_70,P0008_charge_K_80"
+NPC_options:
+  P0008_charge_K_00:
+    text: "*Va de gauche à droite* Oh ! Bonjour ! Je suis désolé, nos services de\
+      \ transport sont en maintenance ! Mais ils seront actifs sous peu ! Repassez\
+      \ me voir bientôt !"
+    events: "message_maire"
+    conditions: "!Chapitre_00-P0009.tag_P0009-fin,!tag_unlock,!Chapitre_00-P0001.tag_chap_00-fin"
+  P0008_charge_K_10:
+    text: "Bonjour à vous cher client ! Je suis le &cResponsable des Transports &fde\
+      \ l'Eldorado, en quoi puis-je vous aider ?"
+    conditions: "Chapitre_00-P0009.tag_P0009-fin,!tag_P0008_charge_debut,!tag_unlock,!Chapitre_00-P0001.tag_chap_00-fin"
+    pointers: "P0008_charge_K_10-oui,P0008_charge_K_10-non"
+  P0008_charge_K_20:
+    text: "&6L'OUPS &fvous propose d'emprunter ses &cmoyens de transport &fpour voyager\
+      \ rapidement et en toute sérénité entre Kokiri et les principales villes de\
+      \ l'Eldorado: &bMinätar&f, &aIrin Lepta &fet &eNycène !"
+    pointers: "P0008_charge_K_20-1,P0008_charge_K_20-2"
+  P0008_charge_K_30:
+    text: "Vous vous rendrez dans &cchacune des villes &fafin de vous faire connaî\
+      tre des autorités locales et &6d'obtenir l'accréditation diplomatique&f. Cela\
+      \ est nécessaire pour utiliser nos services !"
+    events: "tag_P0008_charge_K_30"
+    pointers: "P0008_charge_K_20-2,P0008_charge_K_30/40"
+  P0008_charge_K_40:
+    text: "&cChaque voyage est payant&f, quel que soit le moyen de transport utilisé\
+      . Vous pourrez payer &e directement à la montée &fou &dacheter des tickets &fen\
+      \ avance auprès de nos services à moindre prix."
+    events: "tag_P0008_charge_K_40"
+    pointers: "P0008_charge_K_20-1,P0008_charge_K_30/40"
+  P0008_charge_K_50:
+    text: "Très bien ! Je vous souhaite bon courage et bonne route !"
+    events: "tag_P0008-debut,deltag_intermediaire,give_carnetGUI,objective_carnetGUI,journal_charges,rappel_carnet"
+  P0008_charge_K_60:
+    text: "Mhhh oui ? *Regarde le passeport* Vous n'avez pas encore parlé à tous mes\
+      \ collègues, revenez me voir quand ce sera fait !"
+    events: "rappel_carnet"
+    conditions: "tag_P0008_charge_debut,!and_charge,!tag_unlock,!Chapitre_00-P0001.tag_chap_00-fin"
+  P0008_charge_K_70:
+    text: "Mhhh oui ? *Feuillette le passeport* C'est parfait tout y est ! Vous avez\
+      \ déjà accès aux trois transports, vous pouvez à présent acheter des tickets\
+      \ de voyage auprès des Chargés de Transports."
+    events: "tag_unlock,journal_unlock,reset_P0008,Chapitre_00-P0001.point_chap00,Chapitre_00-P0001.folder_retour_poule"
+    conditions: "and_charge,tag_P0008_charge_debut,!tag_unlock,!Chapitre_00-P0001.tag_chap_00-fin"
+    pointers: "P0008_charge_K_80-ticket,P0008_charge_K_70-non"
+  P0008_charge_K_80:
+    text: "Bonjour cher client ! En quoi puis-je vous aider aujourd'hui ?"
+    conditions: "tag_unlock"
+    pointers: "P0008_charge_K_80-ticket,P0008_charge_K_80-carnet,P0008_charge_K_80-question"
+  P0008_charge_K_80-carnet:
+    text: "Bon ça va pour cette fois, mais garde le précieusement c'est important."
+    events: "give_carnetGUI"
+    conditions: "!item_carnetGUI"
+  P0008_charge_K_90:
+    text: "Quels tickets souhaitez-vous acheter ?"
+    pointers: "P0008_charge_K_90-glace,P0008_charge_K_90-jungle,P0008_charge_K_90-desert,P0008_charge_K_90-non"
+  P0008_charge_K_100:
+    text: "Vos tickets ont été ajoutés à votre passeport ! Merci de prendre nos transports,\
+      \ je vous souhaite bonne route !"
+    events: "message_carnet"
+  P0008_charge_K_110:
+    text: "Je vous écoute ! Que souhaitez-vous savoir ?"
+    pointers: "P0008_charge_K_110-transport,P0008_charge_K_110-ticket,P0008_charge_K_110-info,P0008_charge_K_110-non"
+  P0008_charge_K_120:
+    text: "Nos transports vous permettent de voyager facilement et en toute sécurité\
+      \ entre Kokiri et les trois principales villes de l'Eldorado."
+    pointers: "P0008_charge_K_120"
+  P0008_charge_K_130:
+    text: "Vous trouverez le &bbateau &fà destination de &bMinätar &fau port, le &2dirigeable\
+      \ &fpour vous envoler jusqu'à &2Irin Lepta &fderrière la vieille ville, ainsi\
+      \ que les &elamas &fpour vous rendre à &eNycène &fde l'autre côté de la riviè\
+      re, derrière l'écurie."
+    pointers: "P0008_charge_K_110-ticket,P0008_charge_K_110-info,P0008_charge_K_140-non"
+  P0008_charge_K_140:
+    text: "Les tickets achetés en avance coûtent moins cher que les trajet payés à\
+      \ la montée. Ces tickets peuvent être achetés auprès des Chargés des Transports\
+      \ dans chaque ville, dans la boutique sur notre site ou peuvent parfois être\
+      \ gagnés lors d'évènements."
+    pointers: "P0008_charge_K_110-transport,P0008_charge_K_110-info,P0008_charge_K_140-non"
+  P0008_charge_K_150:
+    text: "Repassez me voir si vous avez besoin de quoi que ce soit !"
+  P0008_charge_K_160:
+    text: "L'organisation des transports de Kokiri a été fondée peu de temps aprè\
+      s la chute de l'Empire. L'objectif était de recréer une unité entre les cité\
+      s de l'Eldorado."
+    pointers: "P0008_charge_K_160"
+  P0008_charge_K_170:
+    text: "La mise en place du réseau de transport n'a pas été simple, à cause des\
+      \ problèmes diplomatiques passés entre Kokiri et les autres villes. Mais cela\
+      \ appartient au passé maintenant !"
+    pointers: "P0008_charge_K_110-transport,P0008_charge_K_110-ticket,P0008_charge_K_140-non"
+player_options:
+  P0008_charge_K_10-oui:
+    text: "Je souhaite en apprendre plus sur votre organisation !"
+    pointers: "P0008_charge_K_20"
+  P0008_charge_K_10-non:
+    text: "Oups je me suis trompé de bureau, à la prochaine !"
+  P0008_charge_K_20-1:
+    text: "C'est intéressant ! Comment je peux utiliser ces moyens de transport ?"
+    conditions: "!tag_P0008_charge_K_30"
+    pointers: "P0008_charge_K_30"
+  P0008_charge_K_20-2:
+    text: "Entendu ! Ces voyages sont-ils payants ?"
+    conditions: "!tag_P0008_charge_K_40"
+    pointers: "P0008_charge_K_40"
+  P0008_charge_K_30/40:
+    text: "Alors je n'ai plus qu'à me mettre en route vers ces contrées lointaines\
+      \ !"
+    conditions: "tag_P0008_charge_K_30,tag_P0008_charge_K_40"
+    pointers: "P0008_charge_K_50"
+  P0008_charge_K_70-non:
+    text: "Entendu ! Merci et à la prochaine !"
+  P0008_charge_K_80-ticket:
+    text: "J'aimerais acheter des tickets !"
+    conditions: "item_carnetGUI"
+    pointers: "P0008_charge_K_90"
+  P0008_charge_K_80-remplir:
+    text: "J’aimerais remplir mon carnet !"
+  P0008_charge_K_80-question:
+    text: "J'ai quelques questions..."
+    pointers: "P0008_charge_K_110"
+  P0008_charge_K_90-desert:
+    text: "$nbr_carnet$ tickets de voyage pour Nycène pour $prix_carnet$ cubix."
+    events: "give_carnet_jaune,money-prix_carnet"
+    pointers: "P0008_charge_K_100"
+  P0008_charge_K_90-glace:
+    text: "$nbr_carnet$ tickets de voyage pour Minätar pour $prix_carnet$ cubix."
+    events: "money-prix_carnet,give_carnet_bleu"
+    pointers: "P0008_charge_K_100"
+  P0008_charge_K_90-jungle:
+    text: "$nbr_carnet$ tickets de voyage pour Irin Lepta pour $prix_carnet$ cubix."
+    events: "money-prix_carnet,give_carnet_vert"
+    pointers: "P0008_charge_K_100"
+  P0008_charge_K_90-non:
+    text: "Finalement je ne vais rien acheter."
+    pointers: "P0008_charge_K_150"
+  P0008_charge_K_110-transport:
+    text: "Quels sont les moyens de transport et à quoi servent-ils ?"
+    pointers: "P0008_charge_K_120"
+  P0008_charge_K_110-ticket:
+    text: "Que sont les tickets de voyage ?"
+    pointers: "P0008_charge_K_140"
+  P0008_charge_K_110-info:
+    text: "Dites m'en plus sur votre organisation..."
+    pointers: "P0008_charge_K_160"
+  P0008_charge_K_110-non:
+    text: "Il semblerait que vous ne puissiez pas m'aider"
+  P0008_charge_K_120:
+    text: "..."
+    pointers: "P0008_charge_K_130"
+  P0008_charge_K_140-non:
+    text: "Merci pour ces éclaircissements !"
+    pointers: "P0008_charge_K_150"
+  P0008_charge_K_160:
+    text: "..."
+    pointers: "P0008_charge_K_170"
+  P0008_charge_K_80-carnet:
+    text: "Il se pourrait que j'ai perdu mon passeport, c'est possible d'en avoir\
+      \ un nouveau ?"
+    conditions: "!item_carnetGUI"
+    pointers: "P0008_charge_K_80-carnet"

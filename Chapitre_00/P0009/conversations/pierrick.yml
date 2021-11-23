@@ -1,0 +1,116 @@
+---
+quester: "M. le Maire"
+stop: "false"
+first: "pierrick_poule,P0009_01,P0009_03-4"
+NPC_options:
+  pierrick_poule:
+    text: "Hum... Vous ne m'avez pas l'air familier. Seriez-vous nouveau à la Capitale\
+      \ ? Je vous conseille de rencontrer &bMaître Poule&f, il se trouve de l'autre\
+      \ côté de la Grand-Place !"
+    conditions: "!Chapitre_00-P0001.tag_P0001-fin,!Chapitre_00-P0001.tag_chap_00-fin"
+  P0009_01:
+    text: "Bonjour %player.display%, je vois que tu arrives en ville... Je suis heureux\
+      \ de te rencontrer et te souhaite la bienvenue dans notre jolie contrée !"
+    conditions: "!tag_P0009_03,!tag_P0009-fin,Chapitre_00-P0001.tag_P0001-fin,!Chapitre_00-P0001.tag_chap_00-fin"
+    pointers: "P0009_01-oui,P0009_01-non"
+  P0009_02:
+    text: "&bKokiri &fest la plus importante et la plus ancienne ville de l’&aEldorado&f,\
+      \ il y a tant de choses à y découvrir... Mais pour s'en occuper, je peux t'assurer\
+      \ qu'il faut du temps et de l'organisation !"
+    pointers: "P0009_02,P0009_02-2,P0009_02-3"
+  P0009_03:
+    text: "Hé bien... Oui ! Je prépare &ale prochain banquet annuel &fde la ville.\
+      \ J'ai distribué la plupart des &binvitations&f aux habitants, mais il m'en\
+      \ reste encore quelques unes... Pendant que je termine les préparatifs, pourrais-tu\
+      \ t'en occuper ?"
+    pointers: "P0009_03-2,P0009_03-3"
+  P0009_03-2:
+    text: "C'est parfait ! Voici 3 invitations... J'ai écrit dans ton &cJournal &fà\
+      \ qui les distribuer. Reviens me voir si tu ne les trouves pas, je t'aiderai\
+      \ à mes retrouver .\\n&b&l(!) &r&3L'ordre de distribution n'est pas important.\\\
+      n&b&l(!) &r&3Les cartons d'invitation sont des &2objets de quête&3. Ils peuvent\
+      \ être placés dans ton /backpack et sont conservés même lors de la mort."
+    events: "journal_P0009_03,tag_P0009_03,give_invitation,point_invitation_3"
+  P0009_03-3:
+    text: "Bien sûr, je comprends. Je ne te retiens pas ! Repasses me voir à l’occasion..."
+  P0009_03-4:
+    text: "N'oublie pas : tu dois apporter les invitations à Alfred, Jacobe et le\
+      \ Réceptionniste de l'Hôtel. Mais... peut-être as-tu déjà tout distribué ?"
+    conditions: "tag_P0009_03,!tag_P0009-fin,!Chapitre_00-P0001.tag_chap_00-fin"
+    pointers: "P0009_03-4,P0009_32-oui,P0009_04,P0009_05,P0009_06,P0009_32-non"
+  P0009_03-5:
+    text: "Tu as de la chance qu'il m'en reste encore. Mais n'oublie pas que si tu\
+      \ ne veux pas les égarer tu peux les mettre dans ton sac à dos, ils y seront\
+      \ en sécurité. "
+    events: "give_invitation_restant,tag_P0009_03-5"
+    conditions: "!item_invitation"
+  P0009_33:
+    text: "Je te remercie %player.display%, tu m'as fait gagner un temps précieux\
+      \ ! Voilà ta récompense. \\n&6M. Maire: &fJ'ai ouïe dire que le &bForgeron &favait\
+      \ besoin d'un assistant, tu devrais aller le voir. Il se trouve près du &cGrand\
+      \ Arbre&f..."
+    events: "tag_P0009-fin,journal_P0009-fin,reward_P0009,reward_P0009-2,folder_reset,Chapitre_00-P0001.point_chap00,display_message,message_unlock_P0008"
+  P0009_04:
+    text: "Jacobe adore s'occuper des chevaux, il est souvent à l'&5écurie&f, prè\
+      s de la Mairie."
+    events: "tag_indice,journal_message_1"
+  P0009_05:
+    text: "Le Grand Hôtel de Kokiri se trouve dans le &5Quartier Commercial &fface\
+      \ à la Mairie, le Réceptionniste y sera !"
+    events: "tag_indice,journal_message_4"
+  P0009_06:
+    text: "Depuis ses péripéties, Alfred traîne près du &5Portail &fmenant au Monde\
+      \ Ressources, sous le Château."
+    events: "tag_indice,journal_message_2"
+player_options:
+  P0009_01-oui:
+    text: "Merci, c'est un plaisir partagé ! J'ai hâte de découvrir cette belle cité\
+      ..."
+    pointers: "P0009_02"
+  P0009_01-non:
+    text: "Je vous remercie ! Cette ville à l'air très agréable et semble paisible\
+      \ !"
+    pointers: "P0009_02"
+  P0009_02:
+    text: "Maître Poule m'a dirigé vers vous. Puis-je vous être utile à quelque chose\
+      \ ?"
+    pointers: "P0009_03"
+  P0009_02-2:
+    text: "D'ailleurs, j'aimerais me rendre utile. Auriez-vous quelque chose pour\
+      \ moi ?"
+    pointers: "P0009_03"
+  P0009_02-3:
+    text: "Comme je vous comprends, M. le Maire... Oh ! Que le temps passe vite, j'ai\
+      \ à faire !"
+    pointers: "P0009_03-3"
+  P0009_03-2:
+    text: "Avec plaisir, je peux m'y mettre tout de suite !"
+    pointers: "P0009_03-2"
+  P0009_03-3:
+    text: "Je suis désolé, mais je n'ai pas le temps pour le moment..."
+    pointers: "P0009_03-3"
+  P0009_03-4:
+    text: "A ce propos, j'avoue en avoir égarés... Pourriez-vous m'en redonner quelques\
+      \ unes ? Je vais faire attention..."
+    conditions: "tag_P0009_03,!tag_P0009_03-5,!point_invitation,!item_invitation"
+    pointers: "P0009_03-5"
+  P0009_32-oui:
+    text: "Oui, absolument ! Ils étaient contents, ça à l'air d'une sacrée tradition\
+      \ !"
+    conditions: "point_invitation"
+    pointers: "P0009_33"
+  P0009_32-non:
+    text: "Non, pas encore M. le Maire... J'y retourne !"
+    conditions: "!point_invitation"
+  P0009_04:
+    text: "Je ne sais pas où se trouve Jacobe..."
+    conditions: "!tag_P0009_05,!tag_indice"
+    pointers: "P0009_04"
+  P0009_05:
+    text: "Je ne sais pas où se trouve le Réceptionniste..."
+    conditions: "!tag_P0009_25,!tag_indice"
+    pointers: "P0009_05"
+  P0009_06:
+    text: "Je ne sais pas où se trouve Alfred..."
+    conditions: "!tag_P0009_17,!tag_indice"
+    pointers: "P0009_06"

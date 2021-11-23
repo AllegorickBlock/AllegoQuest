@@ -1,0 +1,20 @@
+---
+tag_P0007_020: "tag add P0007_020"
+tag_P0007_020_obj-01: "tag add P0007_020_obj-01"
+tag_P0007_020_obj-01-fin: "tag add P0007_020_obj-01-fin"
+tag_P0007-fin: "tag add P0007-fin"
+journal_P0007_020: "journal add P0007_020"
+reward_P0007: "run ^give epee:1 ^money +90 ^folder message_reward delay:1 ^journal\
+  \ add P0007-fin"
+message_P0007_020-fin: "message &b&l(!) &r&3J'ai tondus tout les moutons nécessaire,\
+  \ je peux aller rapporter la laine à Leisya."
+foler_reset: "folder reset_tag,reset_journal"
+reset_tag: "run ^tag del P0007_020 ^tag del P0007_020_obj-01-fin  ^tag del P0007_020_obj-01"
+reset_journal: "run ^journal del P0007_020 ^journal del P0007_020-fin"
+take_charbon: "take charbon:25"
+message_reward: "message &2&l(!)&a Tu as gagné 90 Cubix !"
+remove_item: "take dye:64,log:32,wheat_seeds:64,stone:64"
+display_message_040: "folder message_040  delay:1"
+message_040: "message &b&l(!)&3 Tu dois apporter 64 poudres d'os, 32 bûches de chê\
+  ne, 64 graines de blé et 64 stone à la Marchande."
+tag_P0007_030_non: "tag add P0007_030_non"

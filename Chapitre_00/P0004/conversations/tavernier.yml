@@ -1,0 +1,42 @@
+---
+quester: "Tavernier"
+stop: "false"
+first: "poule,P0004_010,P0004_040,P0004_045,P0004_050"
+NPC_options:
+  poule:
+    text: "Bonjour voyageur ! Ici, le houblon est local et la bière est fraîche !\
+      \ Mais si tu cherches de l'aide, tu devrais rencontrer &bMaître Poule&f, sur\
+      \ la Grand-Place."
+    conditions: "!Chapitre_00-P0001.tag_P0001-fin,!Chapitre_00-P0001.tag_chap_00-fin"
+  P0004_010:
+    text: "Ho mon petit, tu tombes à pic ! J'ai besoin d'un coup de main pour pré\
+      parer le &abanquet de ce soir &f! Tu pourrais aller à la cave pour aider le\
+      \ sommelier ?"
+    conditions: "Chapitre_00-P0009.tag_P0009-fin,!tag_P0004_020,!tag_P0004-fin,OR_P0003-fin,!Chapitre_00-P0001.tag_chap_00-fin"
+    pointers: "P0004_010-oui,P0004_010-non"
+  P0004_040:
+    text: "Mais qu'est-ce que tu attends ? Va donc aider le &eSommelier &fet remonte\
+      \ me dire quand tout est prêt !"
+    conditions: "tag_P0004_020,!tag_P0004-fin,!tag_P0004_080-tavernier,!tag_P0004_100,!Chapitre_00-P0001.tag_chap_00-fin"
+  P0004_045:
+    text: "Comment ça il lui manque des ingrédients ? Va donc les produire , plutô\
+      t que de rester là me regarder ! J'ai du monde en salle moi !"
+    events: "deltag_P0004_080-tavernier,tag_P0004_090,journal_P0004_050,folder_request"
+    conditions: "tag_P0004_080-tavernier,!Chapitre_00-P0001.tag_chap_00-fin"
+  P0004_050:
+    text: "Ça y est, tout est prêt ?! Ouf... Me voilà rassuré ! Comme chaque anné\
+      e, le banquet du Maire doit être parfait ! Ton aide a été précieuse, prends\
+      \ ceci. A la prochaine, voyageur !"
+    events: "tag_P0004-fin,journal_P0004-fin,folder_reward_P0004,folder_reset,Chapitre_00-P0001.point_chap00,folder_deblocage"
+    conditions: "tag_P0004_100,!tag_P0004-fin,!Chapitre_00-P0001.tag_chap_00-fin"
+  P0004_020:
+    text: "C'est le coup de feu là, il me manque du personnel... Assure-toi avec lui\
+      \ que tout est prêt pour ce soir, &ama cave doit être pleine &f! Vas-y, passe\
+      \ derrière !"
+    events: "tag_P0004_020,journal_P0004_020"
+player_options:
+  P0004_010-oui:
+    text: "Je descends tout de suite, que dois-je faire ?"
+    pointers: "P0004_020"
+  P0004_010-non:
+    text: "Sans façon, Tavernier ! Sers-moi plutôt à boire !"

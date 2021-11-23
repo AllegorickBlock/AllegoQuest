@@ -1,0 +1,29 @@
+---
+tag_P0002_030: "tag add P0002_030"
+tag_P0002_030_obj-03-reussite: "tag add P0002_030_obj-03-reussite"
+tag_P0002-fin: "tag add P0002-fin"
+journal_P0002_030: "journal add P0002_030"
+journal_P0002_030-reussite: "journal add P0002_030-reussite"
+journal_P0002-fin: "journal add P0002-fin"
+objective_P0002_030_obj-01: "objective start P0002_030_obj-01"
+display_P0002_01-reussite-1: "message &b&l(!) &r&3Te voilà au Monde Ressources. C'est\
+  \ ici que le Forgeron aime extraire son fer."
+display_P0002_02-reussite: "message &b&l(!) &r&3Tu as extrait assez de minerais de\
+  \ fer pour le Forgeron ! Tu dois maintenant les faire fondre."
+display_P0002_030-reussite: "message &b&l(!) &r&3Tu as fondu le fer, il ne te reste\
+  \ plus qu'à apporter les 8 lingots au Forgeron."
+objective_P0002_030_obj-02: "objective start P0002_030_obj-02"
+objective_P0002_030_obj-03: "objective start P0002_030_obj-03"
+reward_P0002-fin: "give emeraude:5"
+take_lingotdefer: "take lingotdefer:8"
+reward_P0002: "give plastron:1,pioche:1"
+reward_P0002-2: "money +50"
+message_reward: "message &2&l(!) &r&aTu as gagné &e50 Cubix &a+ &e1 plastron en fer\
+  \ &a+ &e1 bouclier"
+folder_reward: "folder reward_P0002-2,reward_P0002"
+folder_reset_P0002: "folder reset_tag,reset_journal"
+reset_tag: "run ^tag del P0002_030 ^tag del P0002_030_obj-03-reussite"
+reset_journal: "run ^journal del P0002_030 ^journal del P0002_030-reussite"
+folder_after: "folder journal_P0002-fin,message_reward delay:1"
+display_P0002_01-reussite-2: "message &b&l(!) &r&3On trouve ici 10x plus de minerais\
+  \ que dans l'Eldorado"

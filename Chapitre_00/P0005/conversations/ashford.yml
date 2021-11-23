@@ -1,0 +1,89 @@
+---
+quester: "Ashford"
+stop: "false"
+first: "poule,P0005_010,P0005_050,P0005_060"
+NPC_options:
+  poule:
+    text: "A votre regard perdu, je doute que vous soyez ici pour contempler les oeuvres\
+      \ du musée... Vous devriez aller voir &eMaître Poule&f, il pourra vous aider."
+    conditions: "!Chapitre_00-P0001.tag_P0001-fin,!Chapitre_00-P0001.tag_chap_00-fin"
+  P0005_010:
+    text: "Hum... Bonjour, excusez-moi ! Cela peut paraître un &7peu étrange&f...\
+      \ J'ai vraiment besoin de quelqu'un pour m'aider et... vous me semblez plutô\
+      t digne de confiance !"
+    conditions: "!tag_P0005_020,!tag_P0005_ashford-fin,!tag_P0005_040-2,Chapitre_00-P0004.tag_P0004-fin,!Chapitre_00-P0001.tag_chap_00-fin"
+    pointers: "P0005_010-oui,P0005_010-non"
+  P0005_050:
+    text: "Vous êtes revenu ! Accepteriez-vous d'apporter à &eOliana &fce petit cadeau,\
+      \ cette fois-ci ?"
+    conditions: "!tag_P0005_020,tag_P0005_040-2,!tag_P0005_ashford-fin,!Chapitre_00-P0001.tag_chap_00-fin"
+    pointers: "P0005_030-oui,P0005_030-non"
+  P0005_060:
+    text: "Oh vous revoilà ! Vous avez pu offrir mon cadeau à &aOliana&f, n'est-ce\
+      \ pas ?"
+    conditions: "tag_P0005_020,!tag_P0005_ashford-fin,!Chapitre_00-P0001.tag_chap_00-fin"
+    pointers: "P0005_060-oui,P0005_060-non"
+  P0005_020-non:
+    text: "Oh... je vois ! Je ne souhaitais pas vous importuner. Peut-être une autre\
+      \ fois alors..."
+  P0005_020-oui:
+    text: "Vraiment?! En vérité c'est... au sujet de quelqu'un pour qui j'éprouve\
+      \ certains... &dsentiments&f, vous voyez... J'aimerais le lui montrer... mais\
+      \ je ne sais pas comment m'y prendre !"
+    pointers: "P0005_020-1,P0005_020-2,P0005_020-3"
+  P0005_030-1:
+    text: "Quoi ?! Heu... C'est une très bonne idée mais... Non, je suis bien trop\
+      \ timide pour ça... Ah je sais ! Et si vous &alui apportiez un cadeau de ma\
+      \ part&f, plutôt?"
+    pointers: "P0005_030-oui,P0005_030-non"
+  P0005_030-2:
+    text: "Un cadeau? Mais c'est une &etrès bonne idée &f! Cependant... Je suis plutô\
+      t timide... Accepteriez-vous de le &alui apporter à ma place &f?"
+    pointers: "P0005_030-oui,P0005_030-non"
+  P0005_040-1:
+    text: "Je savais que je pourrais compter sur vous ! Voilà le cadeau... J'espè\
+      re que ça lui plaira ! A cette heure-ci, &eOliana &fest sûrement &après du Jardin\
+      \ de la taverne&f, à contempler la mer..."
+    events: "tag_P0005_020,journal_P0005_020,give_arbremort,folder_give"
+  P0005_040-2:
+    text: "Oh... je vois ! Je ne souhaitais pas vous importuner. Peut-être une autre\
+      \ fois alors."
+    events: "tag_P0005_040-2"
+  P0005_070:
+    text: "Aaaah ! Ca y est, je suis aux anges ! Vous m'avez rendu un grand service,\
+      \ &eje ne l'oublierai pas &f! Tiens prends ceci, c'est cadeau. J'aime bien &boffrir\
+      \ des cadeaux&f... A une prochaine fois j'espère !"
+    events: "tag_P0005_ashford-fin,journal_P0005_070000,reward_P0005_ashford-2,folder_reset,Chapitre_00-P0001.point_chap00,Chapitre_00-P0001.folder_retour_poule,display_message_reward"
+player_options:
+  P0005_010-oui:
+    text: "Si je peux rendre service, c'est avec plaisir !"
+    pointers: "P0005_020-oui"
+  P0005_010-non:
+    text: "Désolé mais je ne suis pas là pour longtemps, j'aimerais profiter de votre\
+      \ joli musée..."
+    pointers: "P0005_020-non"
+  P0005_030-oui:
+    text: "Mhhh c'est d'accord, je vais vous aider !"
+    pointers: "P0005_040-1"
+  P0005_030-non:
+    text: "Je n'ai pas vraiment le temps aujourd'hui. Une autre fois peut-être..."
+    pointers: "P0005_040-2"
+  P0005_060-oui:
+    text: "La trouver n'a pas été simple, mais j'ai réussi ! Elle m'a demandé de vous\
+      \ remercier !"
+    conditions: "tag_P0005_040"
+    pointers: "P0005_070"
+  P0005_060-non:
+    text: "Bon sang ça m'était sorti de la tête, j'y vais de ce pas !"
+    events: "folder_give"
+    conditions: "!tag_P0005_040"
+  P0005_020-1:
+    text: "Je vois... Eh bien vous pourriez simplement le lui dire, non ?"
+    pointers: "P0005_030-1"
+  P0005_020-2:
+    text: "Pourquoi ne pas lui offrir un cadeau ? Les femmes adorent !"
+    pointers: "P0005_030-2"
+  P0005_020-3:
+    text: "Le Maire organise une grande fête, non ? Invitez-la à danser pour l'occasion\
+      \ !"
+    pointers: "P0005_030-1"

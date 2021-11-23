@@ -1,0 +1,131 @@
+---
+reset_N: "run ^tag del P0008_charge_N_190 ^objective delete logout_ours"
+reset_J: "run ^tag del charge_J-1"
+objective_carnetGUI: "objective start carnetGUI"
+rappel_carnet: "folder rappel_N,rappel_D,rappel_J delay:0.5"
+message_maire: "folder maire delay:0.5"
+maire: " message &3&l(!) &bLe Maire a sans doute quelque chose à te confier... Il\
+  \ se trouve à l'étage ! "
+tag_P0008_charge_K_30: "tag add P0008_charge_K_30"
+tag_P0008_charge_K_40: "tag add P0008_charge_K_40"
+tag_P0008-debut: "tag add P0008_charge_K_50"
+deltag_intermediaire: "run ^tag del P0008_charge_K_30 ^tag del P0008_charge_K_40"
+tag_unlock: "tag add unlock"
+message_carnet: "message &3&l(!) &6$nbr_carnet$&b sont ajouté à votre passeport pour\
+  \ &6$prix_carnet$ &3cubix !"
+money-prix_ticket: "money -$prix_ticket$"
+money-prix_carnet: "money -$prix_carnet$"
+take_ticket_bleu-1: "point ticket_bleu -1"
+take_ticket_vert-1: "point ticket_vert -1"
+take_ticket_jaune-1: "point ticket_jaune -1"
+take_ticket_universel: "point ticket_universel -1"
+give_ticket_bleu+1: "point ticket_bleu 1"
+give_ticket_vert+1: "point ticket_vert 1"
+give_ticket_jaune+1: "point ticket_jaune 1"
+give_carnet_jaune: "point ticket_jaune $nbr_carnet$"
+give_carnet_vert: "point ticket_vert $nbr_carnet$"
+give_carnet_bleu: "point ticket_bleu $nbr_carnet$"
+give_carnetGUI: "give carnetGUI:1 conditions:!item_carnetGUI"
+tag_P0008_charge_D-finish: "tag add P0008_charge_D-finish"
+tag_P0008_charge_N-finish: "tag add P0008_charge_N-finish"
+rappel_N: "message &b&l(!) &3Objectif : se rendre auprès de &6Alabor Dage &3à &bMinä\
+  tar conditions:!tag_P0008_charge_N-finish"
+rappel_D: "message &b&l(!) &3Objectif : se rendre auprès de &6Përip Eyssi &3à &eNycè\
+  ne conditions:!tag_P0008_charge_D-finish"
+rappel_J: "message &b&l(!) &3Objectif : se rendre auprès de &6Canopé Riple &3à &aIrin\
+  \ Lepta conditions:!tag_P0008_charge_J-finish"
+tag_P0008_charge_N_120: "tag add P0008_charge_N_120"
+journal_objective_N-start: "journal add objective_N-start"
+objective_charge_N-1: "objective start charge_N-1"
+message_objective_ours: "message &3&l(!) &bLes ours sont là ! Tu as &f5 minutes &bpour\
+  \ tuer &f3 ours &b! Ne les laisse pas s'échapper !"
+objective_timer_N: "objective start charge_timer_N"
+objective_charge_N-ours: "objective start charge_N-ours"
+run_timer_N_end: "run ^tag add P0008_objective_N-rate ^objective delete charge_N-ours\
+  \ ^killmob POLAR_BEAR 3721;65;2223;Eldorado 40 marked:ours_N"
+spawn_ours: "run ^globalpoint player_ours 1 ^command rg flag neige_ours mob-spawning\
+  \ -w Eldorado allow ^spawn 3721;65;2223;Eldorado POLAR_BEAR 3 "
+spawn_spawner: "folder spawn"
+delete_spawner: "folder rg_off,set_grass_ours,ours_dead conditions:globalpoint_player_ours"
+rg_off: "command rg flag neige_ours mob-spawning -w Eldorado deny"
+set_grass_ours: "setblock GRASS_BLOCK 3718;63;2221;Eldorado"
+ours_dead: "killmob POLAR_BEAR 3722;69;2222;eldorado 40"
+run_objective_N-end: "run ^objective delete charge_timer_N ^tag add P0008_objective_N-finish"
+give_ticket_bleu-5: "point ticket_bleu 5"
+tag_P0008_charge_N_140: "tag add P0008_charge_N_140"
+tag_P0008_charge_J-finish: "tag add P0008_charge_J-finish"
+tag_P0008_charge_J_140: "tag add P0008_charge_J_140"
+tp_desert-kokiri: "folder tp_kokiri_C,tp_desert"
+tp_kokiri_C: "teleport 48;69.5;-164;eldorado;-150;0 conditions:trans_D"
+tp_desert: "teleport -2411.7;70.5;2881.2;eldorado;115.2;0 conditions:trans_K_D"
+money-prix_voyage: "money -$prix_voyage$"
+tp_neige-kokiri: "folder tp_kokiri_B,tp_neige"
+tp_kokiri_B: "teleport 3530;64;2110;eldorado conditions:trans_N"
+tp_neige: "teleport -77;63.5;-450;eldorado conditions:trans_K_N"
+tp_jungle-kokiri: "folder tp_kokiri_Ba,tp_jungle"
+tp_kokiri_Ba: "teleport 240;80.5;-299.5;eldorado;90;0 conditions:trans_J"
+tp_jungle: "teleport 1129.5;105;-3295;eldorado conditions:trans_K_J"
+globalpoint_player_ours-1: "globalpoint player_ours -1"
+spawn: "command setblock 3718 63 2221 spawner{SpawnCount:1,MaxNearbyEntities:4,SpawnRange:4,Delay:100,MinSpawnDelay:300,MaxSpawnDelay:400,RequiredPlayerRange:10,SpawnData:{id:\"\
+  minecraft:polar_bear\"}}"
+message_our-fin: "message &3&l(!) &bTu as chassé tous les ours des alentours ! Retourne\
+  \ voir &cAlabor Dage&b"
+conversation_carnetGUI: "command cmi sudo %player% q_P0008_CarnetTickets $ticket_bleu$\
+  \ $ticket_vert$ $ticket_jaune$ $ticket_universel$"
+objective_logout: "objective start logout_ours"
+cancelling_ours: "command q_P0008_ours_logout %pseudo%"
+folder_ours_rate: "folder objective_timer_N,objective_charge_N-ours,message_objective_ours,spawn_spawner,spawn_ours,objective_logout"
+bossbar_timer_start: "command bossbarmsg %player% Tue les ours : [autoTimeLeft] -n:Ours\
+  \ -sec:-300 -c:blue"
+bossbar_timer_end: "command bossbarmsg %player% Tu as tué les 3 ours ! -n:Ours -sec:-1\
+  \ -c:blue -t:5"
+tag_P0008_charge_D_100: "tag add P0008_charge_D_100"
+objective_charge_D-zombie: "objective start charge_D-zombie"
+tag_charge_D-zombie: "tag add charge_D-zombie"
+message_charge_D-zombie: "message &b(!) &3Tu as tué 10 zombies. Retourne voir le chargé\
+  \ de Nycène"
+give_ticket_jaune+5: "point ticket_jaune 5"
+del_tag_P0008_charge_D_100: "tag del P0008_charge_D_100"
+tag_P0008_charge_N_190: "tag add P0008_charge_N_190"
+objective_charge_J-1: "objective start charge_J-1"
+give_allium: "give allium:1"
+tag_charge_J-1: "tag add charge_J-1"
+rappel_J-quest: "folder message_rappel_J delay:0.5"
+message_charge_J-1: "message &b(!) &3Tu as trouvé l'Allium dont a besoin Canopé Riple\
+  \ ! Retourne la voir au temple."
+give_ticket_vert+5: "point ticket_vert 5"
+tag_P0008_charge_D_120: "tag add P0008_charge_D_120"
+tag_P0008_charge_J_210: "tag add P0008_charge_J_210"
+tag_P0008_charge_J_190: "tag add P0008_charge_J_190"
+take_allium: "take allium:1"
+journal_charges: "journal add charges"
+journal_charges_J: "journal add charges_J"
+journal_charges_D: "journal add charges_D"
+journal_charges_N: "journal add charges_N"
+message_rappel_J: "message &b&l(!) &3Objectif: Trouver la fleur \"Allium\" se se trouvant\
+  \ dans un gouffre, au Nord."
+rappel_N-quest: "message &b(!) &3Va vers le petit village pour tuer les ours. delay:0.5"
+rappel_D-quest: "message &b&l(!) &3Aller tuer 10 zombies."
+folder_return-K: "folder message_return-K,journal_return-K conditions:and_charge delay:1"
+message_return-K: "message &3&l(!) &bTu as obtenu les accréditations de chaque ville\
+  \ ! Retourne à Kokiri voir le Responsable des transports."
+journal_return-K: "journal add return-K"
+journal_unlock: "journal add unlock"
+reset_P0008: "folder reset_tag,reset_journal,reset_objectif,bossbar_timer_end"
+reset_tag: "run ^tag delete P0008_charge_K_50 ^tag delete P0008_charge_J-finish ^tag\
+  \ delete P0008_charge_J_190 ^tag delete P0008_charge_J-1 ^tag delete P0008_charge_J_210\
+  \ ^tag delete P0008_charge_D-finish ^tag delete P0008_charge_D_100 ^tag delete P0008_charge_D-zombie\
+  \ ^tag delete P0008_charge_D-120 ^tag delete P0008_charge_N-finish ^tag delete P0008_charge_140\
+  \ ^tag delete P0008_charge_N_145 ^tag delete P0008_charge_N_120 ^tag delete P0008_objective_N-finish\
+  \ ^tag delete P0008_charge_N_140^tag delete P0008_objective_N-rate ^tag delete charge_J-1\
+  \ ^tag delete charge_D-zombie ^tag delete P0008_charge_D_120"
+reset_journal: "run ^journal delete objective_N-start ^journal delete charges ^journal\
+  \ delete charges_J ^journal delete charges_D ^journal delete charges_N ^journal\
+  \ delete return-K ^journal delete unlock"
+reset_objectif: "run ^objective delete charge_N-1 ^objective delete charge_timer_N\
+  \ ^objective delete charge_N-ours ^objective delete logout_ours ^objective delete\
+  \ charge_D-zombie ^objective delete charge_J-1"
+message_charge_J: "message &3&l(!) &bObjectif : se rendre aux ruines à l'ouest (3723\
+  \ 63 2227)"
+tag_P0008_charge_N_145: "tag add P0008_charge_N_145"
+folder_message_N_120: "folder message_charge_J,journal_objective_N-start delay:0.5"

@@ -1,0 +1,50 @@
+---
+quester: "Sommelier"
+stop: "false"
+first: "poule,P0004_070,P0004_095,P0004_100"
+NPC_options:
+  poule:
+    text: "Qu'est-ce que tu fais ici toi ?! Tu dois encore être comme tous ces nouveaux\
+      \ qui se perdent dans les méandres de Kokiri... Va donc voir &bMaître Poule&f,\
+      \ il se trouve sur la place !"
+    conditions: "!Chapitre_00-P0001.tag_P0001-fin"
+  P0004_070:
+    text: "Qu'est-ce que tu fais ici toi ?! Je n'ai pas le temps de discuter là, je\
+      \ ne suis pas en avance dans ma préparation !"
+    conditions: "Chapitre_00-P0001.tag_P0001-fin,!tag_P0004_090,!tag_P0004-fin"
+    pointers: "P0004_070-1,P0004_070-2"
+  P0004_095:
+    text: "♪ Un peu d'bléééé, un peu d'suc'... Et pis v'la qu'ça fait d'la bonne binouuuuze\
+      \ ♫ &o*Sifflote*"
+    events: "folder_request"
+    conditions: "tag_P0004_090,!tag_P0004_100,!item_sucre_ble,!tag_P0004-fin"
+  P0004_100:
+    text: "Juste à temps ! &o*Jette les ingrédients dans sa marmite*&r Tout sera prê\
+      t à temps pour ce soir ! Tu peux remonter prévenir le &eTavernier &f!"
+    events: "tag_P0004_100,take_sucre_ble,journal_P0004_060"
+    conditions: "item_sucre_ble,tag_P0004_090,!tag_P0004_100,!tag_P0004-fin"
+  P0004_080:
+    text: "Ah ! Eh bien... J'ai un problème ! Je dois produire plus de boissons que\
+      \ prévu, sauf qu'il &cme manque du blé et du sucre &f! Sans ça, la fête du Maire\
+      \ sera fichue..."
+    pointers: "P0004_080-sommelier,P0004_080-tavernier"
+  P0004_090:
+    text: "Tu ferais ça pour moi ? Tu me sauverais la mise ! Il me faut &e32 sucres\n\
+      \ et 64 blés&f, le temps presse !"
+    events: "journal_P0004_050,tag_P0004_090,folder_request"
+player_options:
+  P0004_070-1:
+    text: "Le Tavernier m'envoie m'assurer que tout va bien"
+    conditions: "tag_P0004_020"
+    pointers: "P0004_080"
+  P0004_070-2:
+    text: "Je suis là pour te donner un coup de main."
+    conditions: "tag_P0004_020"
+    pointers: "P0004_080"
+  P0004_080-sommelier:
+    text: "Oh, s'il n'y a que ça, c'est facile à trouver ! Je prends ma houe et je\
+      \ vais en produire !"
+    pointers: "P0004_090"
+  P0004_080-tavernier:
+    text: "Ah... Il faut peut-être annuler alors ! Je vais prévenir le Tavernier !"
+    events: "tag_P0004_080-tavernier"

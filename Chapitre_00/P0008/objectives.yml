@@ -1,0 +1,11 @@
+---
+carnetGUI: "action any any conditions:hand_carnet events:conversation_carnetGUI persistent\
+  \ cancel"
+charge_N-1: "location 3721;65;2223;Eldorado 15 events:folder_ours_rate,bossbar_timer_start"
+charge_timer_N: "delay 5 events:run_timer_N_end,globalpoint_player_ours-1,delete_spawner,bossbar_timer_end"
+charge_N-ours: "mobkill POLAR_BEAR 3 events:run_objective_N-end,globalpoint_player_ours-1,delete_spawner,message_our-fin,bossbar_timer_end"
+logout_ours: "logout events:cancelling_ours"
+charge_D-zombie: "mobkill ZOMBIE 10 events:tag_charge_D-zombie,message_charge_D-zombie\
+  \ notify:5"
+charge_J-1: "action left ALLIUM loc:1098;20;-3330;Eldorado range:5 events:give_allium,tag_charge_J-1,message_charge_J-1\
+  \ cancel"

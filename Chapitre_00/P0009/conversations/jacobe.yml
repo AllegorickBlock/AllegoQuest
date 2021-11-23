@@ -1,0 +1,24 @@
+---
+quester: "Jacobe"
+stop: "false"
+first: "P0009_04"
+NPC_options:
+  P0009_04:
+    text: "Hé bien l'bonjour l’ami, Jacobe pour te servir ! Dans cette écurie tu peux\
+      \ &blouer un box &fet y laisser ton cheval en toute sécurité !"
+    conditions: "tag_P0009_03,!tag_P0009_05,!Chapitre_00-P0001.tag_chap_00-fin"
+    pointers: "P0009_06,P0009_07"
+  P0009_05:
+    text: "Mhhhh... J'espère pouvoir être là, la bière y est toujours fraîche !\n"
+    events: "take_invitation,point_invitation,tag_P0009_05,folder_message,tag_delete_indice"
+    conditions: "item_invitation"
+player_options:
+  P0009_06:
+    text: "C'est mon moyen de transport préféré ! Mais je suis là pour te donner ceci..."
+    conditions: "item_invitation"
+    pointers: "P0009_05"
+  P0009_07:
+    text: "Je préfère me balader à pieds... Par contre, voici une invitation de la\
+      \ part du Maire !"
+    conditions: "item_invitation"
+    pointers: "P0009_05"

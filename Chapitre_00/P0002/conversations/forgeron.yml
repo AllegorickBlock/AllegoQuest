@@ -1,0 +1,52 @@
+---
+quester: "Forgeron"
+stop: "false"
+first: "forgeron_poule,P0002_010,P0002_040"
+NPC_options:
+  forgeron_poule:
+    text: "Je suis le Forgeron, ça ne se voit pas ? Tu peux trouver &bMaître Poule\
+      \ &fen face de la Mairie."
+    conditions: "!Chapitre_00-P0001.tag_P0001-fin,!Chapitre_00-P0001.tag_chap_00-fin"
+  P0002_010:
+    text: "Bienvenue ! Tu es ici à la Forge, je peux te renseigner ?"
+    conditions: "!tag_P0002_030,Chapitre_00-P0009.tag_P0009-fin,!tag_P0002-fin,!Chapitre_00-P0001.tag_chap_00-fin"
+    pointers: "P0002_010"
+  P0002_040:
+    text: "Ah, te revoilà %player.display% ! Tu as mon fer, pas vrai ?"
+    conditions: "tag_P0002_030,!tag_P0002-fin,!Chapitre_00-P0001.tag_chap_00-fin"
+    pointers: "P0002_040-oui,P0002_040-non"
+  P0002_020:
+    text: "Oui, c'est exact ! J'ai reçu une commande spéciale, mais je n'ai pas les\
+      \ matériaux nécessaires... Pourrais-tu me réapprovisionner ?"
+    pointers: "P0002_020-1,P0002_020-2"
+  P0002_030:
+    text: "J'ai besoin de &b8 lingots de fer&f extraits spécialement du &cMonde Ressources&f.\
+      \ C'est là que le fer y est le plus pur ! Reviens me voir quand tu les auras\
+      \ fait &bfondre&f.\\n&b&l(!) &r&3Rends toi au Monde Ressources via le portail\
+      \ qui se trouve dans le tunnel, sous le château (x: 80 y: 82 z: -430)"
+    events: "tag_P0002_030,journal_P0002_030,objective_P0002_030_obj-01"
+  P0002_050:
+    text: "Il me faut &b8 lingots &fde fer extraits du &cMonde Ressources&f, pas un\
+      \ de plus, pas un de moins !"
+  P0002_060:
+    text: "Tu ferais sûrement un bon &bassistant &f! Je pense bientôt avoir du travail\
+      \ pour toi... D'ici là, vas voir &cle pêcheur&f, il a peut-être besoin d'aide..."
+    events: "tag_P0002-fin,take_lingotdefer,folder_reward,folder_reset_P0002,folder_after,Chapitre_00-P0001.point_chap00"
+    conditions: "item_lingotdefer"
+player_options:
+  P0002_010:
+    text: "J'ai entendu dire que tu avais besoin d'aide, alors me voilà !"
+    pointers: "P0002_020"
+  P0002_040-oui:
+    text: "Voici les lingots de fer, tout ce qu'il y a de plus pur !"
+    conditions: "tag_P0002_030_obj-03-reussite,item_lingotdefer"
+    pointers: "P0002_060"
+  P0002_040-non:
+    text: "Non, pas encore... De combien en as-tu besoin déjà ?"
+    conditions: "or"
+    pointers: "P0002_050"
+  P0002_020-1:
+    text: "Bien sûr, je vais faire le nécessaire ! De quoi as-tu besoin ?"
+    pointers: "P0002_030"
+  P0002_020-2:
+    text: "Pas tout de suite, j'ai oublié d'éteindre mon four..."
