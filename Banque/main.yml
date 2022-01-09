@@ -1,0 +1,15 @@
+---
+npcs:
+  227: "banquier"
+  224: "banquier"
+  228: "banquier"
+variables:
+  prix_petit: "50"
+  prix_moyen: "100"
+  prix_grand: "200"
+  prix_r_petit: "45"
+  prix_r_moyen: "92"
+  prix_r_grand: "187"
+  taux_moyen: "8"
+  taux_grand: "6.5"
+  taux_petit: "10"

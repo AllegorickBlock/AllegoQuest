@@ -1,0 +1,13 @@
+---
+tag_banque_30: "tag unlock"
+money_petit: "money $prix_petit$"
+money_moyen: "money $prix_moyen$"
+money_grand: "money $prix_grand$"
+item_petit: "item prix_petit:1"
+item_moyen: "item prix_moyen:1"
+item_grand: "item prix_grand:1"
+or_item_bon: "or item_petit,item_moyen,item_grand"
+tag_banque_20-1: "tag banque_20-1"
+tag_banque_20-2: "tag banque_20-2"
+and_tag_banque_20: "and tag_banque_20-1,tag_banque_20-2"
+empty-1: "empty 1"

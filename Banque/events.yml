@@ -1,0 +1,11 @@
+---
+tag_banque_30: "tag add unlock"
+give_petit: "run ^give prix_petit:1 ^money -$prix_petit$ ^globalpoint bon_petit 1 ^point bon 1"
+give_moyen: "run ^give prix_moyen:1 ^money -$prix_moyen$ ^globalpoint bon_moyen 1 ^point bon 1"
+give_grand: "run ^give prix_grand:1 ^money -$prix_grand$ ^globalpoint bon_grand 1 ^point bon 1"
+take_petit: "run ^take prix_petit:1 ^money $prix_r_petit$ ^globalpoint bon_petit -1 ^point bon -1"
+take_moyen: "run ^take prix_moyen:1 ^money $prix_r_moyen$ ^globalpoint bon_moyen -1 ^point bon -1"
+take_grand: "run ^take prix_grand:1 ^money $prix_r_grand$ ^globalpoint bon_grand -1 ^point bon -1"
+tag_banque_20-1: "tag add banque_20-1"
+tag_banque_20-2: "tag add banque_20-2"
+reset_tag: "run ^tag delete banque_20-1 ^tag delete banque_20-2"

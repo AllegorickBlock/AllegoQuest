@@ -1,0 +1,163 @@
+---
+quester: "Banquier"
+stop: "false"
+first: "banque_aventurier,banque_10,banque_40"
+NPC_options:
+  banque_aventurier:
+    text: "Bienvenue à la &3Grande Banque de Kokiri &f! Malheureusement, nous ne proposons\
+      \ nos humbles services qu'&2à partir du Grade Aventurier&f."
+    conditions: "!General-Player.tag_grade-3"
+  banque_10:
+    text: "Bienvenue à la &3Grande Banque de Kokiri&f, %player%. Vous n'êtes pas encore\
+      \ client, laissez-moi vous présenter le fonctionnement de notre humble établissement."
+    conditions: "!tag_banque_30,General-Player.tag_grade-3"
+    pointers: "banque_10-1,banque_10-2"
+  banque_20:
+    text: "Afin de &astocker votre argent en toute sécurité&f, nous vous proposons\
+      \ l'acquisition de &ebons au porteur&f. Un bon au porteur est un titre prouvant\
+      \ que vous détenez de l'argent à la Grande Banque de Kokiri."
+    pointers: "banque_20-1,banque_20-2"
+  banque_25-1:
+    text: "&eConfiez-nous votre argent et vous obtenez un bon au porteur en échange&f.\
+      \ Si vous détenez un bon au porteur, il vous appartient. &cNe le perdez pas\
+      \ ! &fA tout moment, vous pouvez revenir nous présenter votre bon pour récupé\
+      rer votre argent."
+    pointers: "banque_20-2,banque_30"
+  banque_25-2:
+    text: "Nous proposons des bons de $prix_petit$ Cubix, $prix_moyen$ Cubix et $prix_grand$\
+      \ Cubix. &eDes frais de gestion &fvous seront humblement prélevés lors de l'é\
+      change de votre bon."
+    pointers: "banque_20-1,banque_30"
+  banque_30:
+    text: "Nous proposons des bons de 50 Cubix, 100 Cubix et 200 Cubix. Des frais\
+      \ de gestion vous seront humblement prélevés lors de l'échange de votre bon."
+    pointers: "banque_30"
+  banque_40:
+    text: "Bienvenue à la Grande Banque de Kokiri, en quoi puis-je vous aider aujourd'hui\
+      \ ?"
+    conditions: "tag_banque_30"
+    pointers: "banque_40-achat,banque_40-vendre,banque_40-info"
+  banque_50-argent:
+    text: "Nous proposons trois catégories de bons au porteur: $prix_petit$, $prix_moyen$\
+      \ et $prix_grand$ Cubix. Duquel souhaitez-vous faire l'acquisition ?"
+    conditions: "money_petit"
+    pointers: "banque_50-petit,banque_50-moyen,banque_50-grand,banque-retour"
+  banque_50-rien:
+    text: "Vous devez posséder de l'argent pour acquérir un bon. Je vous conseille\
+      \ de &btravailler pour les habitants &fdes grandes cités. Ou de &cvendre vos\
+      \ ressources&f: le commerce, c'est une noble profession !"
+    conditions: "!money_petit"
+    pointers: "banque-retour"
+  banque_55-petit:
+    text: "Voici votre bon. La Grande Banque de Kokiri vous remercie pour votre confiance."
+    events: "give_petit"
+    conditions: "money_petit,empty-1"
+  banque_55-moyen:
+    text: "Voici votre bon. La Grande Banque de Kokiri vous remercie pour votre confiance."
+    events: "give_moyen"
+    conditions: "money_moyen,empty-1"
+  banque_55-grand:
+    text: "Voici votre bon. La Grande Banque de Kokiri vous remercie pour votre confiance."
+    events: "give_grand"
+    conditions: "money_grand,empty-1"
+  banque_60:
+    text: "Quel bon souhaitez-vous nous présenter afin de récupérer votre argent ?"
+    pointers: "banque_60-petit,banque_60-moyen,banque_60-grand,banque-retour"
+  banque_60-petit:
+    text: "Voici vos 50 Cubix minorés des frais de gestion ($taux_petit$%). La Grande\
+      \ Banque de Kokiri vous remercie pour votre confiance."
+    events: "take_petit"
+    conditions: "item_petit"
+  banque_60-moyen:
+    text: "Voici vos 100 Cubix minorés des frais de gestion ($taux_moyen$%). La Grande\
+      \ Banque de Kokiri vous remercie pour votre confiance."
+    events: "take_moyen"
+    conditions: "item_moyen"
+  banque_60-grand:
+    text: "Voici vos 200 Cubix minorés des frais de gestion ($taux_grand$%). La Grande\
+      \ Banque de Kokiri vous remercie pour votre confiance."
+    events: "take_grand"
+    conditions: "item_grand"
+  banque_70:
+    text: "Afin de &astocker votre argent en toute sécurité&f, nous vous proposons\
+      \ l'acquisition de &ebons au porteur&f. Un bon au porteur est un titre prouvant\
+      \ que vous détenez de l'argent à la Grande Banque de Kokiri."
+    pointers: "banque_70-1,banque_70-2,banque-retour"
+  banque_70-1:
+    text: "&eConfiez-nous votre argent et vous obtenez un bon au porteur en échange&f.\
+      \ Si vous détenez un bon au porteur, il vous appartient. &cNe le perdez pas\
+      \ ! &fA tout moment, vous pouvez revenir nous présenter votre bon pour récupé\
+      rer votre argent."
+    pointers: "banque_70-2,banque-retour"
+  banque_70-2:
+    text: "Nous proposons des bons de 50 Cubix, 100 Cubix et 200 Cubix. &eDes frais\
+      \ de gestion &fvous seront humblement prélevés lors de l'échange de votre bon."
+    pointers: "banque_70-1,banque-retour"
+  banque_55-plein:
+    text: "Cher %player%, &cvous devez avoir au moins 1 emplacement libre dans votre inventaire &fpour obtenir un bon au porteur."
+    conditions: "!empty-1"
+player_options:
+  banque_10-1:
+    text: "Savoir gérer son argent, c'est la clé ! Je vous écoute..."
+    pointers: "banque_20"
+  banque_10-2:
+    text: "Oh, quel accueil ! Ça m'intéresse, je suis tout ouïe..."
+    pointers: "banque_20"
+  banque_20-1:
+    text: "Comment procédez-vous concrètement ?"
+    events: "tag_banque_20-1"
+    conditions: "!tag_banque_20-1"
+    pointers: "banque_25-1"
+  banque_20-2:
+    text: "Quelle est la valeur de ces bons au porteur ?"
+    events: "tag_banque_20-2"
+    conditions: "!tag_banque_20-2"
+    pointers: "banque_25-2"
+  banque_30:
+    text: "Tout est très clair, merci pour ces explications."
+    events: "tag_banque_30,reset_tag"
+    conditions: "and_tag_banque_20"
+    pointers: "banque_40"
+  banque_40-achat:
+    text: "Je souhaite obtenir un bon au porteur"
+    pointers: "banque_50-argent,banque_50-rien"
+  banque_40-vendre:
+    text: "Je souhaite vendre un bon au porteur"
+    conditions: "or_item_bon"
+    pointers: "banque_60"
+  banque_40-info:
+    text: "Je souhaite obtenir plus d'informations"
+    pointers: "banque_70"
+  banque_50-petit:
+    text: "Bon au porteur de 50 Cubix"
+    conditions: "money_petit"
+    pointers: "banque_55-petit,banque_55-plein"
+  banque_50-moyen:
+    text: "Bon au porteur de 100 Cubix"
+    conditions: "money_moyen"
+    pointers: "banque_55-moyen,banque_55-plein"
+  banque_50-grand:
+    text: "Bon au porteur de 200 Cubix"
+    conditions: "money_grand"
+    pointers: "banque_55-grand,banque_55-plein"
+  banque-retour:
+    text: "[Retour]"
+    pointers: "banque_40"
+  banque_60-petit:
+    text: "Bon au porteur de 50 Cubix"
+    conditions: "item_petit"
+    pointers: "banque_60-petit"
+  banque_60-moyen:
+    text: "Bon au porteur de 100 Cubix"
+    conditions: "item_moyen"
+    pointers: "banque_60-moyen"
+  banque_60-grand:
+    text: "Bon au porteur de 200 Cubix"
+    conditions: "item_grand"
+    pointers: "banque_60-grand"
+  banque_70-1:
+    text: "Comment procédez-vous concrètement ?"
+    pointers: "banque_70-1"
+  banque_70-2:
+    text: "Quelle est la valeur de ces bons au porteur ?"
+    pointers: "banque_70-2"

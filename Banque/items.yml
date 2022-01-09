@@ -1,0 +1,7 @@
+---
+prix_petit: "WRITABLE_BOOK durability:0 name:&6Bon_au_Porteur&6_de_$prix_petit$_Cubix\
+  \ lore:&3Titre_à_échanger_auprès_de lore:&3la_Grande_Banque_de_Kokiri enchants:DURABILITY:1"
+prix_moyen: "WRITABLE_BOOK durability:0 name:&6Bon_au_Porteur&6_de_$prix_moyen$_Cubix\
+  \ lore:&3Titre_à_échanger_auprès_de lore:&3la_Grande_Banque_de_Kokiri enchants:DURABILITY:1"
+prix_grand: "WRITABLE_BOOK durability:0 name:&6Bon_au_Porteur&6_de_$prix_grand$_Cubix\
+  \ lore:&3Titre_à_échanger_auprès_de lore:&3la_Grande_Banque_de_Kokiri enchants:DURABILITY:1"
